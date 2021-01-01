@@ -11,6 +11,8 @@ const qualifiedList = document.getElementById("missing_qualified");
 const lovedList = document.getElementById("missing_loved");
 
 function addEntries(element, beatmaps, truncated = false){
+    element.innerHTML = "";
+    
     for(const beatmap of beatmaps){
         const entry = document.createElement("li");
 

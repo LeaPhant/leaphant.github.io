@@ -2021,6 +2021,117 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 }
 
 },{}],5:[function(require,module,exports){
+(function (Buffer){(function (){
+const OsuDBParser = require("osu-db-parser");
+const _ = require('lodash');
+const osuDB = new OsuDBParser();
+
+const fileSelect = document.getElementById("file_osudb");
+const reader = new FileReader();
+reader.onload = loadFile;
+
+const rankedList = document.getElementById("missing_ranked");
+const qualifiedList = document.getElementById("missing_qualified");
+const lovedList = document.getElementById("missing_loved");
+
+function addEntries(element, beatmaps, truncated = false){
+    element.innerHTML = "";
+    
+    for(const beatmap of beatmaps){
+        const entry = document.createElement("li");
+
+        entry.innerHTML = 
+          `[<a target="_blank" href="https://osu.ppy.sh/s/${beatmap.beatmapset_id}">osu.ppy.sh</a>]`
+        + ` [<a href="osu://dl/${beatmap.beatmapset_id}">osu!direct</a>]`
+        + ` ${beatmap.artist} - ${beatmap.title} (${beatmap.creator})`;
+
+        element.appendChild(entry);
+    }
+
+    if(truncated){
+        const entry = document.createElement("li");
+        entry.appendChild(document.createTextNode('…and more'));
+
+        element.appendChild(entry);
+    }
+}
+
+async function fetchBeatmaps(beatmaps){
+    return await(
+        await fetch('https://osu.lea.moe/b/', {
+            method: 'POST',
+            mode: 'cors',
+            body: beatmaps.slice(0,2000).join(',')
+        })
+    ).json();
+}
+
+async function loadFile(){
+    osuDB.setBuffer("osudb", Buffer.from(reader.result));
+
+    let { beatmaps } = osuDB.getOsuDBData();
+
+    beatmaps = beatmaps.map(a => a.beatmap_id);
+
+    const result = await(await fetch("https://osu.lea.moe/beatmaps")).json();
+
+    let startTime = Date.now();
+
+    console.log('finding difference')
+
+    const rankedMissing = _.difference(result.ranked.beatmaps, beatmaps);
+    const qualifiedMissing = _.difference(result.qualified.beatmaps, beatmaps);
+    const lovedMissing = _.difference(result.loved.beatmaps, beatmaps);
+    
+    console.log('took', (Date.now() - startTime) / 1000, 's');
+
+    startTime = Date.now();
+
+    console.log('fetching beatmaps');
+
+    const rankedMaps = await fetchBeatmaps(rankedMissing);
+    const qualifiedMaps = await fetchBeatmaps(qualifiedMissing);
+    const lovedMaps = await fetchBeatmaps(lovedMissing);
+    
+    console.log('took', (Date.now() - startTime) / 1000, 's');
+
+    startTime = Date.now();
+
+    console.log('getting unique mapsets');
+
+    const rankedMapsets = _.uniqBy(rankedMaps.map(a => a.beatmap), 'beatmapset_id');
+    const qualifiedMapsets = _.uniqBy(qualifiedMaps.map(a => a.beatmap), 'beatmapset_id');
+    const lovedMapsets = _.uniqBy(lovedMaps.map(a => a.beatmap), 'beatmapset_id');
+
+    console.log('took', (Date.now() - startTime) / 1000, 's');
+
+    document.getElementById('missing_ranked_text').innerText = 
+        `Missing Ranked Maps (${rankedMissing.length})`;
+    document.getElementById('missing_qualified_text').innerText = 
+        `Missing Qualified Maps (${qualifiedMissing.length})`;
+    document.getElementById('missing_loved_text').innerText = 
+        `Missing Loved Maps (${lovedMissing.length})`;
+
+    addEntries(rankedList, rankedMapsets, rankedMissing.length > 2000);
+    addEntries(qualifiedList, qualifiedMapsets, qualifiedMissing.length > 2000);
+    addEntries(lovedList, lovedMapsets, lovedMissing.length > 2000);
+
+    document.getElementById("loading_text").style.visibility = 'hidden';
+}
+
+function updateFile(){
+    document.getElementById("loading_text").style.visibility = 'visible';
+
+    const file = fileSelect.files[0];
+
+    document.getElementById("last_modified_time").innerHTML = new Date(file.lastModified).toString();
+
+    reader.readAsArrayBuffer(file, "UTF-8");
+}
+
+fileSelect.addEventListener("change", updateFile);
+}).call(this)}).call(this,require("buffer").Buffer)
+},{"buffer":3,"lodash":6,"osu-db-parser":8}],6:[function(require,module,exports){
 (function (global){(function (){
 /**
  * @license
@@ -19185,7 +19296,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 }.call(this));
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 (function (Buffer){(function (){
 'use strict';
 
@@ -19678,11 +19789,11 @@ class OsuBuffer {
 module.exports = OsuBuffer;
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":3}],7:[function(require,module,exports){
+},{"buffer":3}],8:[function(require,module,exports){
 const OsuDBParser = require("./src/OsuDB");
 
 module.exports = OsuDBParser;
-},{"./src/OsuDB":8}],8:[function(require,module,exports){
+},{"./src/OsuDB":9}],9:[function(require,module,exports){
 const fs = require('fs');
 const osuBuffer = require('osu-buffer');
 const Reader = require("./Reader");
@@ -19768,7 +19879,7 @@ class OsuDBParser {
 
 module.exports = OsuDBParser
     
-},{"./Reader":9,"./Struct":10,"fs":1,"osu-buffer":6}],9:[function(require,module,exports){
+},{"./Reader":10,"./Struct":11,"fs":1,"osu-buffer":7}],10:[function(require,module,exports){
 (function (Buffer){(function (){
 /* Reader base from osu-packet! */
 const OsuBuffer = require('osu-buffer');
@@ -20022,7 +20133,7 @@ class Reader {
   
   module.exports = Reader;
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":3,"osu-buffer":6}],10:[function(require,module,exports){
+},{"buffer":3,"osu-buffer":7}],11:[function(require,module,exports){
 module.exports = {
     osuDbStruct: [
         {name: 'osuver', type: 'int32'},
@@ -20040,113 +20151,4 @@ module.exports = {
         {name: 'collection', type: 'collections', uses: 'collectionscount'}
     ]
 }
-},{}],11:[function(require,module,exports){
-(function (Buffer){(function (){
-const OsuDBParser = require("osu-db-parser");
-const _ = require('lodash');
-const osuDB = new OsuDBParser();
-
-const fileSelect = document.getElementById("file_osudb");
-const reader = new FileReader();
-reader.onload = loadFile;
-
-const rankedList = document.getElementById("missing_ranked");
-const qualifiedList = document.getElementById("missing_qualified");
-const lovedList = document.getElementById("missing_loved");
-
-function addEntries(element, beatmaps, truncated = false){
-    for(const beatmap of beatmaps){
-        const entry = document.createElement("li");
-
-        entry.innerHTML = 
-          `[<a target="_blank" href="https://osu.ppy.sh/s/${beatmap.beatmapset_id}">osu.ppy.sh</a>]`
-        + ` [<a href="osu://dl/${beatmap.beatmapset_id}">osu!direct</a>]`
-        + ` ${beatmap.artist} - ${beatmap.title} (${beatmap.creator})`;
-
-        element.appendChild(entry);
-    }
-
-    if(truncated){
-        const entry = document.createElement("li");
-        entry.appendChild(document.createTextNode('…and more'));
-
-        element.appendChild(entry);
-    }
-}
-
-async function fetchBeatmaps(beatmaps){
-    return await(
-        await fetch('https://osu.lea.moe/b/', {
-            method: 'POST',
-            mode: 'cors',
-            body: beatmaps.slice(0,2000).join(',')
-        })
-    ).json();
-}
-
-async function loadFile(){
-    osuDB.setBuffer("osudb", Buffer.from(reader.result));
-
-    let { beatmaps } = osuDB.getOsuDBData();
-
-    beatmaps = beatmaps.map(a => a.beatmap_id);
-
-    const result = await(await fetch("https://osu.lea.moe/beatmaps")).json();
-
-    let startTime = Date.now();
-
-    console.log('finding difference')
-
-    const rankedMissing = _.difference(result.ranked.beatmaps, beatmaps);
-    const qualifiedMissing = _.difference(result.qualified.beatmaps, beatmaps);
-    const lovedMissing = _.difference(result.loved.beatmaps, beatmaps);
-    
-    console.log('took', (Date.now() - startTime) / 1000, 's');
-
-    startTime = Date.now();
-
-    console.log('fetching beatmaps');
-
-    const rankedMaps = await fetchBeatmaps(rankedMissing);
-    const qualifiedMaps = await fetchBeatmaps(qualifiedMissing);
-    const lovedMaps = await fetchBeatmaps(lovedMissing);
-    
-    console.log('took', (Date.now() - startTime) / 1000, 's');
-
-    startTime = Date.now();
-
-    console.log('getting unique mapsets');
-
-    const rankedMapsets = _.uniqBy(rankedMaps.map(a => a.beatmap), 'beatmapset_id');
-    const qualifiedMapsets = _.uniqBy(qualifiedMaps.map(a => a.beatmap), 'beatmapset_id');
-    const lovedMapsets = _.uniqBy(lovedMaps.map(a => a.beatmap), 'beatmapset_id');
-
-    console.log('took', (Date.now() - startTime) / 1000, 's');
-
-    document.getElementById('missing_ranked_text').innerText = 
-        `Missing Ranked Maps (${rankedMissing.length})`;
-    document.getElementById('missing_qualified_text').innerText = 
-        `Missing Qualified Maps (${qualifiedMissing.length})`;
-    document.getElementById('missing_loved_text').innerText = 
-        `Missing Loved Maps (${lovedMissing.length})`;
-
-    addEntries(rankedList, rankedMapsets, rankedMissing.length > 2000);
-    addEntries(qualifiedList, qualifiedMapsets, qualifiedMissing.length > 2000);
-    addEntries(lovedList, lovedMapsets, lovedMissing.length > 2000);
-
-    document.getElementById("loading_text").style.visibility = 'hidden';
-}
-
-function updateFile(){
-    document.getElementById("loading_text").style.visibility = 'visible';
-
-    const file = fileSelect.files[0];
-
-    document.getElementById("last_modified_time").innerHTML = new Date(file.lastModified).toString();
-
-    reader.readAsArrayBuffer(file, "UTF-8");
-}
-
-fileSelect.addEventListener("change", updateFile);
-}).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":3,"lodash":5,"osu-db-parser":7}]},{},[11]);
+},{}]},{},[5]);
