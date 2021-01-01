@@ -2034,9 +2034,20 @@ const rankedList = document.getElementById("missing_ranked");
 const qualifiedList = document.getElementById("missing_qualified");
 const lovedList = document.getElementById("missing_loved");
 
+let currentBeatmaps;
+
+const fetchBeatmapsPromise = new Promise(async (resolve, reject) => {
+    try{
+        currentBeatmaps = await(await fetch("https://osu.lea.moe/beatmaps")).json();
+        resolve();
+    }catch(e){
+        reject(e);
+    }
+});
+
 function addEntries(element, beatmaps, truncated = false){
     element.innerHTML = "";
-    
+
     for(const beatmap of beatmaps){
         const entry = document.createElement("li");
 
@@ -2073,15 +2084,15 @@ async function loadFile(){
 
     beatmaps = beatmaps.map(a => a.beatmap_id);
 
-    const result = await(await fetch("https://osu.lea.moe/beatmaps")).json();
+    await fetchBeatmapsPromise;
 
     let startTime = Date.now();
 
     console.log('finding difference')
 
-    const rankedMissing = _.difference(result.ranked.beatmaps, beatmaps);
-    const qualifiedMissing = _.difference(result.qualified.beatmaps, beatmaps);
-    const lovedMissing = _.difference(result.loved.beatmaps, beatmaps);
+    const rankedMissing = _.difference(currentBeatmaps.ranked.beatmaps, beatmaps);
+    const qualifiedMissing = _.difference(currentBeatmaps.qualified.beatmaps, beatmaps);
+    const lovedMissing = _.difference(currentBeatmaps.loved.beatmaps, beatmaps);
     
     console.log('took', (Date.now() - startTime) / 1000, 's');
 
@@ -2130,6 +2141,12 @@ function updateFile(){
 }
 
 fileSelect.addEventListener("change", updateFile);
+
+window.addEventListener("load", () => {
+    fetchBeatmapsPromise.then(() => {
+        document.getElementById("ranked_map_count").innerHTML = currentBeatmaps.ranked.amount.toLocaleString();
+    }).catch(console.error);
+});
 }).call(this)}).call(this,require("buffer").Buffer)
 },{"buffer":3,"lodash":6,"osu-db-parser":8}],6:[function(require,module,exports){
 (function (global){(function (){
