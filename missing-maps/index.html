@@ -1,0 +1,60 @@
+ <!DOCTYPE html>
+ <html>
+    <head>
+        <meta charset="utf8">
+        <style>
+            html{
+                background: rgb(20,20,20);
+                font-family: sans-serif;
+                color: white;
+            }
+
+            a, a:visited{
+                color: #fe8bc8;
+                text-decoration: none;
+            }
+
+            li{
+                color: rgba(255,255,255,0.8);
+            }
+
+            details{
+                margin: 20px;
+            }
+
+            summary{
+                font-size: 18px;
+            }
+
+            #loading_text{
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Select osu!.db:</h4>
+        <input id="file_osudb" type="file"><span id="loading_text">(Loading...)</span>
+        <p>Last modified: <strong id="last_modified_time"></strong></p>
+        <hr>
+        <details>
+            <summary id="missing_ranked_text">Missing Ranked Maps</summary>
+            <ul id="missing_ranked"></ul>
+        </details>
+        <details>
+            <summary id="missing_qualified_text">Missing Qualified Maps</summary>
+            <ul id="missing_qualified"></ul>
+        </details>
+        <details>
+            <summary id="missing_loved_text">Missing Loved Maps</summary>
+            <ul id="missing_loved"></ul>
+        </details>
+        <hr>
+        <h3>Thanks to:</h3>
+        <ul>
+            <li><a href="https://browserify.org/" target="_blank">Browserify</a></li>
+            <li><a href="https://github.com/KotRikD/osu-db-parser" target="_blank">KotRikD/osu-db-parser</a></li>
+            <li><a href="https://github.com/ppy/osu-api/wiki" target="_blank">osu!api</a></li>
+        </ul>
+        <script src="bundle.js"></script>
+    </body>
+ </html>
