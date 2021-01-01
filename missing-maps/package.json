@@ -1,0 +1,19 @@
+{
+  "name": "missing-maps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "./node_modules/.bin/browserify main.js -o bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LeaPhant",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.20",
+    "osu-db-parser": "^1.0.37"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0"
+  }
+}
