@@ -6,7 +6,8 @@
 // @author       LeaPhant
 // @match        http*://osu.ppy.sh/*
 // @grant        none
-// @run-at      document-idle
+// @updateURL    https://leaphant.github.io/userscripts/ranked-score.user.js
+// @run-at       document-idle
 // ==/UserScript==
 
 async function pageChange() {
