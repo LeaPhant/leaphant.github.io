@@ -1,14 +1,16 @@
 // ==UserScript==
 // @name         osu! ranked score
 // @namespace    https://leaphant.github.io/
-// @version      0.2
+// @version      0.3
 // @description  adds score for nomod ss to std beatmap pages
 // @author       LeaPhant
 // @match        http*://osu.ppy.sh/*
 // @grant        none
 // @updateURL    https://leaphant.github.io/userscripts/ranked-score.user.js
-// @run-at       document-idle
 // ==/UserScript==
+
+const rankedElementSelector =
+'.beatmapset-header__box.beatmapset-header__box--stats > .beatmapset-status.beatmapset-status--show';
 
 async function pageChange() {
     const { hash } = window.location;
@@ -19,8 +21,7 @@ async function pageChange() {
 
     const mapId = hash.split('/')[1];
 
-    const rankedStateElement =
-    document.querySelector('.beatmapset-header__box.beatmapset-header__box--stats > .beatmapset-status.beatmapset-status--show');
+    const rankedStateElement = document.querySelector(rankedElementSelector);
 
     let rankedState = 'ranked';
 
@@ -30,11 +31,11 @@ async function pageChange() {
             break;
         }
     }
-    
+
     if (!['ranked', 'qualified', 'approved', 'loved'].includes(rankedState)) {
         return;
     }
-    
+
     const beatmapInfo = await (await fetch(`https://osu.lea.moe/b/${mapId}`)).json();
 
     rankedStateElement.innerHTML = `<span style="opacity:.85">${beatmapInfo.beatmap.max_score.toLocaleString()} </span>${rankedState}<span> Score</span>`;
@@ -54,6 +55,11 @@ history.replaceState = function(){
     pageChange();
 };
 
-(() => {
-    pageChange();
-})();
+(new MutationObserver(check)).observe(document, {childList: true, subtree: true});
+
+function check(changes, observer) {
+    if(document.querySelector(rankedElementSelector)) {
+        observer.disconnect();
+        pageChange();
+    }
+}
