@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         osu! ranked score
 // @namespace    https://leaphant.github.io/
-// @version      0.3
+// @version      0.4
 // @description  adds score for nomod ss to std beatmap pages
 // @author       LeaPhant
 // @match        http*://osu.ppy.sh/*
@@ -10,7 +10,17 @@
 // ==/UserScript==
 
 const rankedElementSelector =
-'.beatmapset-header__box.beatmapset-header__box--stats > .beatmapset-status.beatmapset-status--show';
+'.beatmapset-header__box.beatmapset-header__box--stats > .beatmapset-header__status > .beatmapset-status.beatmapset-status--show';
+
+const RANKED_STATE = {
+    '-2': 'Graveyard',
+    '-1': 'WIP',
+    '0': 'Pending',
+    '1': 'Ranked',
+    '2': 'Approved',
+    '3': 'Qualified',
+    '4': 'Loved'
+};
 
 async function pageChange() {
     const { hash } = window.location;
@@ -32,13 +42,28 @@ async function pageChange() {
         }
     }
 
-    if (!['ranked', 'qualified', 'approved', 'loved'].includes(rankedState)) {
+    if (rankedState && !['ranked', 'qualified', 'approved', 'loved'].includes(rankedState)) {
         return;
     }
 
     const beatmapInfo = await (await fetch(`https://osu.lea.moe/b/${mapId}`)).json();
 
-    rankedStateElement.innerHTML = `<span style="opacity:.85">${beatmapInfo.beatmap.max_score.toLocaleString()} </span>${rankedState}<span> Score</span>`;
+    const { beatmap } = beatmapInfo;
+
+    const { max_score } = beatmap;
+    let formattedScore = "";
+
+    if (max_score >= 1000000000) {
+        formattedScore =`${(max_score / 1000000000).toFixed(2)}b`;
+    } else if (max_score >= 100000000) {
+        formattedScore =`${Math.round(max_score / 1000000)}m`;
+    } else if (max_score >= 1000000) {
+        formattedScore =`${(max_score / 1000000).toFixed(1)}m`;
+    } else if(max_score >= 1000) {
+        formattedScore =`${Math.floor(max_score / 1000)}k`;
+    }
+
+    rankedStateElement.innerHTML = `<span title="${max_score.toLocaleString()}" style="opacity:.85">${formattedScore} </span>&nbsp;<span>${RANKED_STATE[beatmap.approved]} Score</span>`;
 }
 
 const pushState = history.pushState;
@@ -63,3 +88,5 @@ function check(changes, observer) {
         pageChange();
     }
 }
+
+window.addEventListener('hashchange', pageChange);
