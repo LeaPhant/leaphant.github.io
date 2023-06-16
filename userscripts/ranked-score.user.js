@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         osu! ranked score
 // @namespace    https://leaphant.github.io/
-// @version      0.4
+// @version      0.5
 // @description  adds score for nomod ss to std beatmap pages
 // @author       LeaPhant
 // @match        http*://osu.ppy.sh/*
@@ -63,7 +63,7 @@ async function pageChange() {
         formattedScore =`${Math.floor(max_score / 1000)}k`;
     }
 
-    rankedStateElement.innerHTML = `<span title="${max_score.toLocaleString()}" style="opacity:.85">${formattedScore} </span>&nbsp;<span>${RANKED_STATE[beatmap.approved]} Score</span>`;
+    rankedStateElement.innerHTML = `<span title="${max_score.toLocaleString()}" style="opacity:.85">${formattedScore} </span>&nbsp;<span style="white-space:nowrap">${RANKED_STATE[beatmap.approved]} Score</span>`;
 }
 
 const pushState = history.pushState;
