@@ -31,7 +31,7 @@ function addEntries(section, beatmaps, pages){
     for(const beatmap of beatmaps){
         const entry = document.createElement("li");
 
-        const events = 'onclick="this.parentNode.style.opacity=0.75" onauxclick="this.parentNode.style.opacity=0.75"';
+        const events = 'onclick="this.parentNode.style.opacity=0.6" onauxclick="this.parentNode.style.opacity=0.6"';
 
         entry.innerHTML = 
           `[<a ${events} href="https://osu.ppy.sh/s/${beatmap.beatmapset_id}">osu.ppy.sh</a>]`
