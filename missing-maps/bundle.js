@@ -8,9 +8,11 @@ const fileSelect = document.getElementById("file_osudb");
 const reader = new FileReader();
 reader.onload = loadFile;
 
-const rankedList = document.getElementById("missing_ranked");
-const qualifiedList = document.getElementById("missing_qualified");
-const lovedList = document.getElementById("missing_loved");
+const list = {
+    ranked: document.getElementById("missing_ranked"),
+    qualified: document.getElementById("missing_qualified"),
+    loved: document.getElementById("missing_loved")
+};
 
 let currentBeatmaps;
 
@@ -23,7 +25,9 @@ const fetchBeatmapsPromise = new Promise(async (resolve, reject) => {
     }
 });
 
-function addEntries(element, beatmaps, truncated = false){
+function addEntries(section, beatmaps, pages){
+    const element = list[section];
+
     element.innerHTML = "";
 
     for(const beatmap of beatmaps){
@@ -37,22 +41,88 @@ function addEntries(element, beatmaps, truncated = false){
         element.appendChild(entry);
     }
 
-    if(truncated){
-        const entry = document.createElement("li");
-        entry.appendChild(document.createTextNode('…and more'));
+    if(pages > 1){
+        const currentPage = page[section];
+        const entry = document.createElement("p");
+
+        const prevPage = document.createElement('a');
+        const nextPage = document.createElement('a');
+
+        prevPage.innerHTML = 'prev';
+        nextPage.innerHTML = 'next';
+
+        entry.appendChild(prevPage);
+        entry.appendChild(document.createTextNode(` • Page ${currentPage + 1} / ${pages} • `));
+        entry.appendChild(nextPage);
+
+        if (currentPage > 0) {
+            prevPage.href = '#';
+            prevPage.addEventListener('click', e => {
+                element.innerHTML = "Loading new page...";
+                element.appendChild(entry);
+                e.preventDefault();
+                page[section]--;
+                loadSection(section).catch(console.error);
+            }, { once: true });
+        } else {
+            prevPage.style.color = 'rgba(255,255,255,0.5)';
+        }
+
+        if ((currentPage + 1) < pages){
+            nextPage.href = '#';
+            nextPage.addEventListener('click', e => {
+                element.innerHTML = "Loading new page...";
+                element.appendChild(entry);
+                e.preventDefault();
+                page[section]++;
+                loadSection(section).catch(console.error);
+            }, { once: true });
+        } else {
+            nextPage.style.color = 'rgba(255,255,255,0.5)';
+        }
 
         element.appendChild(entry);
     }
 }
 
-async function fetchBeatmaps(beatmaps){
+async function fetchBeatmaps(beatmaps, page){
     return await(
         await fetch('https://osu.lea.moe/b/', {
             method: 'POST',
             mode: 'cors',
-            body: beatmaps.slice(0,2000).join(',')
+            body: beatmaps.slice(0 + 2000 * page, 2000 + 2000 * page).join(',')
         })
     ).json();
+}
+
+const SECTIONS = ['ranked', 'qualified', 'loved'];
+const missing = {}, page = {};
+let loading = 0;
+
+async function loadSection(section) {
+    document.getElementById("loading_text").style.visibility = 'visible';
+    loading++;
+
+    startTime = Date.now();
+
+    const currentPage =  page[section];
+    const pages = Math.ceil(missing[section].length / 2000);
+
+    console.log(`fetching ${section} beatmaps (page ${currentPage + 1} / ${pages})`);
+
+    const maps = await fetchBeatmaps(missing[section], currentPage);
+    
+    console.log('took', (Date.now() - startTime) / 1000, 's');
+
+    const mapsets = _.uniqBy(maps.map(a => a.beatmap), 'beatmapset_id');
+
+    document.getElementById(`missing_${section}_text`).innerText = 
+        `Missing ${_.upperFirst(section)} Maps (${missing[section].length})`;
+
+    addEntries(section, mapsets, pages);
+    loading--;
+
+    if (loading == 0) document.getElementById("loading_text").style.visibility = 'hidden';
 }
 
 async function loadFile(){
@@ -64,48 +134,11 @@ async function loadFile(){
 
     await fetchBeatmapsPromise;
 
-    let startTime = Date.now();
-
-    console.log('finding difference')
-
-    const rankedMissing = _.difference(currentBeatmaps.ranked.beatmaps, beatmaps);
-    const qualifiedMissing = _.difference(currentBeatmaps.qualified.beatmaps, beatmaps);
-    const lovedMissing = _.difference(currentBeatmaps.loved.beatmaps, beatmaps);
-    
-    console.log('took', (Date.now() - startTime) / 1000, 's');
-
-    startTime = Date.now();
-
-    console.log('fetching beatmaps');
-
-    const rankedMaps = await fetchBeatmaps(rankedMissing);
-    const qualifiedMaps = await fetchBeatmaps(qualifiedMissing);
-    const lovedMaps = await fetchBeatmaps(lovedMissing);
-    
-    console.log('took', (Date.now() - startTime) / 1000, 's');
-
-    startTime = Date.now();
-
-    console.log('getting unique mapsets');
-
-    const rankedMapsets = _.uniqBy(rankedMaps.map(a => a.beatmap), 'beatmapset_id');
-    const qualifiedMapsets = _.uniqBy(qualifiedMaps.map(a => a.beatmap), 'beatmapset_id');
-    const lovedMapsets = _.uniqBy(lovedMaps.map(a => a.beatmap), 'beatmapset_id');
-
-    console.log('took', (Date.now() - startTime) / 1000, 's');
-
-    document.getElementById('missing_ranked_text').innerText = 
-        `Missing Ranked Maps (${rankedMissing.length})`;
-    document.getElementById('missing_qualified_text').innerText = 
-        `Missing Qualified Maps (${qualifiedMissing.length})`;
-    document.getElementById('missing_loved_text').innerText = 
-        `Missing Loved Maps (${lovedMissing.length})`;
-
-    addEntries(rankedList, rankedMapsets, rankedMissing.length > 2000);
-    addEntries(qualifiedList, qualifiedMapsets, qualifiedMissing.length > 2000);
-    addEntries(lovedList, lovedMapsets, lovedMissing.length > 2000);
-
-    document.getElementById("loading_text").style.visibility = 'hidden';
+    for (const section of SECTIONS) {
+        missing[section] = _.difference(currentBeatmaps[section].beatmaps, beatmaps);
+        page[section] = 0;
+        loadSection(section).catch(console.error);
+    }
 }
 
 function updateFile(){
@@ -125,6 +158,7 @@ window.addEventListener("load", () => {
         document.getElementById("ranked_map_count").innerHTML = currentBeatmaps.ranked.amount.toLocaleString();
     }).catch(console.error);
 });
+
 }).call(this)}).call(this,require("buffer").Buffer)
 },{"buffer":4,"lodash":6,"osu-db-parser":8}],2:[function(require,module,exports){
 'use strict'
