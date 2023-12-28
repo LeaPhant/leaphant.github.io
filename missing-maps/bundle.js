@@ -33,9 +33,11 @@ function addEntries(section, beatmaps, pages){
     for(const beatmap of beatmaps){
         const entry = document.createElement("li");
 
+        const events = 'onclick="this.parentNode.style.opacity=0.75" onauxclick="this.parentNode.style.opacity=0.75"';
+
         entry.innerHTML = 
-          `[<a target="_blank" href="https://osu.ppy.sh/s/${beatmap.beatmapset_id}">osu.ppy.sh</a>]`
-        + ` [<a href="osu://dl/${beatmap.beatmapset_id}">osu!direct</a>]`
+          `[<a ${events} href="https://osu.ppy.sh/s/${beatmap.beatmapset_id}">osu.ppy.sh</a>]`
+        + ` [<a ${events} href="osu://dl/${beatmap.beatmapset_id}">osu!direct</a>]`
         + ` ${beatmap.artist} - ${beatmap.title} (${beatmap.creator})`;
 
         element.appendChild(entry);
