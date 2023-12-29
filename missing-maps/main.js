@@ -1,5 +1,7 @@
 const OsuDBParser = require("osu-db-parser");
-const _ = require('lodash');
+const uniqBy = require("lodash/uniqBy"),
+upperFirst = require("lodash/upperFirst"),
+difference = require("lodash/difference");
 const osuDB = new OsuDBParser();
 
 const fileSelect = document.getElementById("file_osudb");
@@ -114,10 +116,10 @@ async function loadSection(section) {
     
     console.log('took', (Date.now() - startTime) / 1000, 's');
 
-    const mapsets = _.uniqBy(maps.map(a => a.beatmap), 'beatmapset_id');
+    const mapsets = uniqBy(maps.map(a => a.beatmap), 'beatmapset_id');
 
     document.getElementById(`missing_${section}_text`).innerText = 
-        `Missing ${_.upperFirst(section)} Maps (${missing[section].length})`;
+        `Missing ${upperFirst(section)} Maps (${missing[section].length})`;
 
     addEntries(section, mapsets, pages);
     loading--;
@@ -135,7 +137,7 @@ async function loadFile(){
     await fetchBeatmapsPromise;
 
     for (const section of SECTIONS) {
-        missing[section] = _.difference(currentBeatmaps[section].beatmaps, beatmaps);
+        missing[section] = difference(currentBeatmaps[section].beatmaps, beatmaps);
         page[section] = 0;
         loadSection(section).catch(console.error);
     }
