@@ -1,0 +1,49 @@
+a, a:visited{
+    color: #fe8bc8;
+    text-decoration: none;
+}
+
+nav {
+    align-self: flex-start;
+    margin-left: 1em;
+}
+
+.route span {
+    color: rgba(255,255,255,0.6);
+}
+
+body {
+    background: rgb(20,20,20);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    min-height: calc(100vh - 9em);
+    align-self: center;
+}
+
+li{
+    color: rgba(255,255,255,0.8);
+}
+
+body {
+    margin: 0;
+}
+
+footer {
+    margin-top: 2em;
+    text-align: center;
+    color: rgba(255,255,255,.6);
+    transition: .15s color;
+}
+
+footer:hover {
+    color: rgba(255,255,255,.9);
+}
+
+footer a {
+    color: inherit;
+}

@@ -2,73 +2,77 @@
 <html>
    <head>
        <meta charset="utf8">
+       <link rel="stylesheet" href="/style.css">
        <style>
-           html{
-               background: rgb(20,20,20);
-               font-family: sans-serif;
-               color: white;
-           }
+            html {
+                display: block;
+            }
 
-           a, a:visited{
-               color: #fe8bc8;
-               text-decoration: none;
-           }
+            details{
+                margin: 20px;
+            }
 
-           li{
-               color: rgba(255,255,255,0.8);
-           }
+            summary{
+                font-size: 18px;
+            }
 
-           details{
-               margin: 20px;
-           }
+            #loading_text{
+                visibility: hidden;
+            }
 
-           summary{
-               font-size: 18px;
-           }
-
-           #loading_text{
-               visibility: hidden;
-           }
+            hr {
+                width: 100%;
+            }
        </style>
    </head>
    <body>
-        <h3>Select osu!.db:</h3>
-        <input id="file_osudb" type="file"><span id="loading_text">(Loading...)</span>
-        <p>Last modified: <strong id="last_modified_time"></strong></p>
-        <hr>
-        <details>
-            <summary id="missing_ranked_text">Missing Ranked Maps</summary>
-            <ul id="missing_ranked"></ul>
-        </details>
-        <details>
-            <summary id="missing_qualified_text">Missing Qualified Maps</summary>
-            <ul id="missing_qualified"></ul>
-        </details>
-        <details>
-            <summary id="missing_loved_text">Missing Loved Maps</summary>
-            <ul id="missing_loved"></ul>
-        </details>
-        <hr>
-        <p>Your osu!.db file is not being submitted and only processed locally. Maps are fetched from my own Beatmap API.</p>
-        <p>There are currently <span id="ranked_map_count">???</span> ranked/approved beatmaps.</p>
-        <p>source code: <a href="https://github.com/LeaPhant/leaphant.github.io/tree/main/missing-maps" target="_blank">GitHub</a></p>
-        <h3>Thanks to:</h3>
-        <ul>
-            <li><a href="https://browserify.org/" target="_blank">Browserify</a></li>
-            <li><a href="https://github.com/KotRikD/osu-db-parser" target="_blank">KotRikD/osu-db-parser</a></li>
-            <li><a href="https://github.com/ppy/osu-api/wiki" target="_blank">osu!api</a></li>
-        </ul>
-        <hr>
-        <details>
-            <summary id="missing_ranked_text">Changelog (Last update: December 29, 2023)</summary>
-            <ul>December 29, 2023
-                <li>Added pagination of list has more than 2000 entries.</li>
-                <li>Grey out mapset entries after their download link has been clicked.</li>
+        <nav>
+            <h1 class="route"><a href="/">leaphant.github.io</a> <span>/</span> missing-maps</h1>
+        </nav>
+        <main>
+            <h1>Find your missing osu! maps</h1>
+            <hr>
+            <h3>Select osu!.db:</h3>
+            <input id="file_osudb" type="file"><span id="loading_text">(Loading...)</span>
+            <p>Last modified: <strong id="last_modified_time"></strong></p>
+            <hr>
+            <details>
+                <summary id="missing_ranked_text">Missing Ranked Maps</summary>
+                <ul id="missing_ranked"></ul>
+            </details>
+            <details>
+                <summary id="missing_qualified_text">Missing Qualified Maps</summary>
+                <ul id="missing_qualified"></ul>
+            </details>
+            <details>
+                <summary id="missing_loved_text">Missing Loved Maps</summary>
+                <ul id="missing_loved"></ul>
+            </details>
+            <hr>
+            <p>Your osu!.db file is not being submitted and only processed locally. Maps are fetched from my own Beatmap API.</p>
+            <p>There are currently <span id="ranked_map_count">???</span> ranked/approved beatmaps.</p>
+            <p>source code: <a href="https://github.com/LeaPhant/leaphant.github.io/tree/main/missing-maps" target="_blank">GitHub</a></p>
+            <h3>Thanks to:</h3>
+            <ul>
+                <li><a href="https://browserify.org/" target="_blank">Browserify</a></li>
+                <li><a href="https://github.com/KotRikD/osu-db-parser" target="_blank">KotRikD/osu-db-parser</a></li>
+                <li><a href="https://github.com/ppy/osu-api/wiki" target="_blank">osu!api</a></li>
             </ul>
-            <ul>Jan 1, 2021
-                <li>Created missing-maps.</li>
-            </ul>
-        </details>
+            <hr>
+            <details>
+                <summary id="missing_ranked_text">Changelog (Last update: December 29, 2023)</summary>
+                <ul>December 29, 2023
+                    <li>Added pagination of list has more than 2000 entries.</li>
+                    <li>Grey out mapset entries after their download link has been clicked.</li>
+                </ul>
+                <ul>Jan 1, 2021
+                    <li>Created missing-maps.</li>
+                </ul>
+            </details>
+        </main>
+        <footer>
+            – Made with 🌈 by <a href="https://github.com/LeaPhant" target="_blank">LeaPhant</a> –
+        </footer>
        <script src="bundle.js?v4"></script>
    </body>
 </html>
