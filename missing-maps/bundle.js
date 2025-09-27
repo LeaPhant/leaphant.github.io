@@ -103,6 +103,23 @@ const SECTIONS = ['ranked', 'qualified', 'loved'];
 const missing = {}, page = {};
 let loading = 0;
 
+const errorContainer = document.getElementById("error_message");
+
+function hideError() {
+    errorContainer.style.display = 'none';
+}
+
+function showError(error) {
+    document.getElementById("loading_text").style.visibility = 'hidden';
+    console.error(error);
+    const errorMsg = document.createElement("pre");
+    errorMsg.innerText = error.toString();
+    errorContainer.innerHTML = '<strong>Error:</strong>';
+    errorContainer.appendChild(errorMsg);
+    errorContainer.innerHTML += '\n\nFeel free to open an <a target="_blank" href="https://github.com/LeaPhant/leaphant.github.io/issues">Issue</a> or shoot me an e-mail (mail@lea.moe).';
+    errorContainer.style.display = 'block';
+}
+
 async function loadSection(section) {
     document.getElementById("loading_text").style.visibility = 'visible';
     loading++;
@@ -130,18 +147,24 @@ async function loadSection(section) {
 }
 
 async function loadFile(){
-    osuDB.setBuffer("osudb", Buffer.from(reader.result));
+    hideError();
 
-    let { beatmaps } = osuDB.getOsuDBData();
+    try {
+        osuDB.setBuffer("osudb", Buffer.from(reader.result));
 
-    beatmaps = beatmaps.map(a => a.beatmap_id);
+        let { beatmaps } = osuDB.getOsuDBData();
 
-    await fetchBeatmapsPromise;
+        beatmaps = beatmaps.map(a => a.beatmap_id);
 
-    for (const section of SECTIONS) {
-        missing[section] = difference(currentBeatmaps[section].beatmaps, beatmaps);
-        page[section] = 0;
-        loadSection(section).catch(console.error);
+        await fetchBeatmapsPromise;
+
+        for (const section of SECTIONS) {
+            missing[section] = difference(currentBeatmaps[section].beatmaps, beatmaps);
+            page[section] = 0;
+            loadSection(section).catch(showError);
+        }
+    } catch(e) {
+        showError(e);
     }
 }
 

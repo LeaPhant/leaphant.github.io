@@ -23,6 +23,13 @@
             hr {
                 width: 100%;
             }
+
+            #error_message {
+                display: none;
+                margin: 10px 0px;
+                padding: 10px;
+                border: 2px dashed red;
+            }
        </style>
    </head>
    <body>
@@ -35,6 +42,7 @@
             <h3>Select osu!.db:</h3>
             <input id="file_osudb" type="file"><span id="loading_text">(Loading...)</span>
             <p>Last modified: <strong id="last_modified_time"></strong></p>
+            <div id="error_message"></div>
             <hr>
             <details>
                 <summary id="missing_ranked_text">Missing Ranked Maps</summary>
