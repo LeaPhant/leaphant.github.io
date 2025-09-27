@@ -1,4 +1,4 @@
-const OsuDBParser = require("osu-db-parser");
+const { OsuDBParser } = require("osu-db-parser");
 const uniqBy = require("lodash/uniqBy"),
 upperFirst = require("lodash/upperFirst"),
 difference = require("lodash/difference");

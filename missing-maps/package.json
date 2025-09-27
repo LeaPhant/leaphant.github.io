@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.20",
-    "osu-db-parser": "^1.0.37"
+    "osu-db-parser": "^2.0.1"
   },
   "devDependencies": {
     "browserify": "^17.0.0"

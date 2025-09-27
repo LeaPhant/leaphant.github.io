@@ -1,6 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 (function (Buffer){(function (){
-const OsuDBParser = require("osu-db-parser");
+const { OsuDBParser } = require("osu-db-parser");
 const uniqBy = require("lodash/uniqBy"),
 upperFirst = require("lodash/upperFirst"),
 difference = require("lodash/difference");
@@ -164,7 +164,7 @@ window.addEventListener("load", () => {
 });
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":4,"lodash/difference":126,"lodash/uniqBy":149,"lodash/upperFirst":150,"osu-db-parser":152}],2:[function(require,module,exports){
+},{"buffer":3,"lodash/difference":125,"lodash/uniqBy":148,"lodash/upperFirst":149,"osu-db-parser":157}],2:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -317,8 +317,6 @@ function fromByteArray (uint8) {
 }
 
 },{}],3:[function(require,module,exports){
-
-},{}],4:[function(require,module,exports){
 (function (Buffer){(function (){
 /*!
  * The buffer module from node.js, for the browser.
@@ -2099,7 +2097,7 @@ function numberIsNaN (obj) {
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"base64-js":2,"buffer":4,"ieee754":5}],5:[function(require,module,exports){
+},{"base64-js":2,"buffer":3,"ieee754":4}],4:[function(require,module,exports){
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
@@ -2186,7 +2184,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],6:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -2195,7 +2193,7 @@ var DataView = getNative(root, 'DataView');
 
 module.exports = DataView;
 
-},{"./_getNative":70,"./_root":108}],7:[function(require,module,exports){
+},{"./_getNative":69,"./_root":107}],6:[function(require,module,exports){
 var hashClear = require('./_hashClear'),
     hashDelete = require('./_hashDelete'),
     hashGet = require('./_hashGet'),
@@ -2229,7 +2227,7 @@ Hash.prototype.set = hashSet;
 
 module.exports = Hash;
 
-},{"./_hashClear":77,"./_hashDelete":78,"./_hashGet":79,"./_hashHas":80,"./_hashSet":81}],8:[function(require,module,exports){
+},{"./_hashClear":76,"./_hashDelete":77,"./_hashGet":78,"./_hashHas":79,"./_hashSet":80}],7:[function(require,module,exports){
 var listCacheClear = require('./_listCacheClear'),
     listCacheDelete = require('./_listCacheDelete'),
     listCacheGet = require('./_listCacheGet'),
@@ -2263,7 +2261,7 @@ ListCache.prototype.set = listCacheSet;
 
 module.exports = ListCache;
 
-},{"./_listCacheClear":89,"./_listCacheDelete":90,"./_listCacheGet":91,"./_listCacheHas":92,"./_listCacheSet":93}],9:[function(require,module,exports){
+},{"./_listCacheClear":88,"./_listCacheDelete":89,"./_listCacheGet":90,"./_listCacheHas":91,"./_listCacheSet":92}],8:[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -2272,7 +2270,7 @@ var Map = getNative(root, 'Map');
 
 module.exports = Map;
 
-},{"./_getNative":70,"./_root":108}],10:[function(require,module,exports){
+},{"./_getNative":69,"./_root":107}],9:[function(require,module,exports){
 var mapCacheClear = require('./_mapCacheClear'),
     mapCacheDelete = require('./_mapCacheDelete'),
     mapCacheGet = require('./_mapCacheGet'),
@@ -2306,7 +2304,7 @@ MapCache.prototype.set = mapCacheSet;
 
 module.exports = MapCache;
 
-},{"./_mapCacheClear":94,"./_mapCacheDelete":95,"./_mapCacheGet":96,"./_mapCacheHas":97,"./_mapCacheSet":98}],11:[function(require,module,exports){
+},{"./_mapCacheClear":93,"./_mapCacheDelete":94,"./_mapCacheGet":95,"./_mapCacheHas":96,"./_mapCacheSet":97}],10:[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -2315,7 +2313,7 @@ var Promise = getNative(root, 'Promise');
 
 module.exports = Promise;
 
-},{"./_getNative":70,"./_root":108}],12:[function(require,module,exports){
+},{"./_getNative":69,"./_root":107}],11:[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -2324,7 +2322,7 @@ var Set = getNative(root, 'Set');
 
 module.exports = Set;
 
-},{"./_getNative":70,"./_root":108}],13:[function(require,module,exports){
+},{"./_getNative":69,"./_root":107}],12:[function(require,module,exports){
 var MapCache = require('./_MapCache'),
     setCacheAdd = require('./_setCacheAdd'),
     setCacheHas = require('./_setCacheHas');
@@ -2353,7 +2351,7 @@ SetCache.prototype.has = setCacheHas;
 
 module.exports = SetCache;
 
-},{"./_MapCache":10,"./_setCacheAdd":109,"./_setCacheHas":110}],14:[function(require,module,exports){
+},{"./_MapCache":9,"./_setCacheAdd":108,"./_setCacheHas":109}],13:[function(require,module,exports){
 var ListCache = require('./_ListCache'),
     stackClear = require('./_stackClear'),
     stackDelete = require('./_stackDelete'),
@@ -2382,7 +2380,7 @@ Stack.prototype.set = stackSet;
 
 module.exports = Stack;
 
-},{"./_ListCache":8,"./_stackClear":114,"./_stackDelete":115,"./_stackGet":116,"./_stackHas":117,"./_stackSet":118}],15:[function(require,module,exports){
+},{"./_ListCache":7,"./_stackClear":113,"./_stackDelete":114,"./_stackGet":115,"./_stackHas":116,"./_stackSet":117}],14:[function(require,module,exports){
 var root = require('./_root');
 
 /** Built-in value references. */
@@ -2390,7 +2388,7 @@ var Symbol = root.Symbol;
 
 module.exports = Symbol;
 
-},{"./_root":108}],16:[function(require,module,exports){
+},{"./_root":107}],15:[function(require,module,exports){
 var root = require('./_root');
 
 /** Built-in value references. */
@@ -2398,7 +2396,7 @@ var Uint8Array = root.Uint8Array;
 
 module.exports = Uint8Array;
 
-},{"./_root":108}],17:[function(require,module,exports){
+},{"./_root":107}],16:[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -2407,7 +2405,7 @@ var WeakMap = getNative(root, 'WeakMap');
 
 module.exports = WeakMap;
 
-},{"./_getNative":70,"./_root":108}],18:[function(require,module,exports){
+},{"./_getNative":69,"./_root":107}],17:[function(require,module,exports){
 /**
  * A faster alternative to `Function#apply`, this function invokes `func`
  * with the `this` binding of `thisArg` and the arguments of `args`.
@@ -2430,7 +2428,7 @@ function apply(func, thisArg, args) {
 
 module.exports = apply;
 
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * A specialized version of `_.filter` for arrays without support for
  * iteratee shorthands.
@@ -2457,7 +2455,7 @@ function arrayFilter(array, predicate) {
 
 module.exports = arrayFilter;
 
-},{}],20:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 var baseIndexOf = require('./_baseIndexOf');
 
 /**
@@ -2476,7 +2474,7 @@ function arrayIncludes(array, value) {
 
 module.exports = arrayIncludes;
 
-},{"./_baseIndexOf":35}],21:[function(require,module,exports){
+},{"./_baseIndexOf":34}],20:[function(require,module,exports){
 /**
  * This function is like `arrayIncludes` except that it accepts a comparator.
  *
@@ -2500,7 +2498,7 @@ function arrayIncludesWith(array, value, comparator) {
 
 module.exports = arrayIncludesWith;
 
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 var baseTimes = require('./_baseTimes'),
     isArguments = require('./isArguments'),
     isArray = require('./isArray'),
@@ -2551,7 +2549,7 @@ function arrayLikeKeys(value, inherited) {
 
 module.exports = arrayLikeKeys;
 
-},{"./_baseTimes":52,"./_isIndex":83,"./isArguments":131,"./isArray":132,"./isBuffer":135,"./isTypedArray":141}],23:[function(require,module,exports){
+},{"./_baseTimes":51,"./_isIndex":82,"./isArguments":130,"./isArray":131,"./isBuffer":134,"./isTypedArray":140}],22:[function(require,module,exports){
 /**
  * A specialized version of `_.map` for arrays without support for iteratee
  * shorthands.
@@ -2574,7 +2572,7 @@ function arrayMap(array, iteratee) {
 
 module.exports = arrayMap;
 
-},{}],24:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 /**
  * Appends the elements of `values` to `array`.
  *
@@ -2596,7 +2594,7 @@ function arrayPush(array, values) {
 
 module.exports = arrayPush;
 
-},{}],25:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 /**
  * A specialized version of `_.some` for arrays without support for iteratee
  * shorthands.
@@ -2621,7 +2619,7 @@ function arraySome(array, predicate) {
 
 module.exports = arraySome;
 
-},{}],26:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 /**
  * Converts an ASCII `string` to an array.
  *
@@ -2635,7 +2633,7 @@ function asciiToArray(string) {
 
 module.exports = asciiToArray;
 
-},{}],27:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 var eq = require('./eq');
 
 /**
@@ -2658,7 +2656,7 @@ function assocIndexOf(array, key) {
 
 module.exports = assocIndexOf;
 
-},{"./eq":127}],28:[function(require,module,exports){
+},{"./eq":126}],27:[function(require,module,exports){
 var SetCache = require('./_SetCache'),
     arrayIncludes = require('./_arrayIncludes'),
     arrayIncludesWith = require('./_arrayIncludesWith'),
@@ -2727,7 +2725,7 @@ function baseDifference(array, values, iteratee, comparator) {
 
 module.exports = baseDifference;
 
-},{"./_SetCache":13,"./_arrayIncludes":20,"./_arrayIncludesWith":21,"./_arrayMap":23,"./_baseUnary":54,"./_cacheHas":56}],29:[function(require,module,exports){
+},{"./_SetCache":12,"./_arrayIncludes":19,"./_arrayIncludesWith":20,"./_arrayMap":22,"./_baseUnary":53,"./_cacheHas":55}],28:[function(require,module,exports){
 /**
  * The base implementation of `_.findIndex` and `_.findLastIndex` without
  * support for iteratee shorthands.
@@ -2753,7 +2751,7 @@ function baseFindIndex(array, predicate, fromIndex, fromRight) {
 
 module.exports = baseFindIndex;
 
-},{}],30:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 var arrayPush = require('./_arrayPush'),
     isFlattenable = require('./_isFlattenable');
 
@@ -2793,7 +2791,7 @@ function baseFlatten(array, depth, predicate, isStrict, result) {
 
 module.exports = baseFlatten;
 
-},{"./_arrayPush":24,"./_isFlattenable":82}],31:[function(require,module,exports){
+},{"./_arrayPush":23,"./_isFlattenable":81}],30:[function(require,module,exports){
 var castPath = require('./_castPath'),
     toKey = require('./_toKey');
 
@@ -2819,7 +2817,7 @@ function baseGet(object, path) {
 
 module.exports = baseGet;
 
-},{"./_castPath":57,"./_toKey":122}],32:[function(require,module,exports){
+},{"./_castPath":56,"./_toKey":121}],31:[function(require,module,exports){
 var arrayPush = require('./_arrayPush'),
     isArray = require('./isArray');
 
@@ -2841,7 +2839,7 @@ function baseGetAllKeys(object, keysFunc, symbolsFunc) {
 
 module.exports = baseGetAllKeys;
 
-},{"./_arrayPush":24,"./isArray":132}],33:[function(require,module,exports){
+},{"./_arrayPush":23,"./isArray":131}],32:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     getRawTag = require('./_getRawTag'),
     objectToString = require('./_objectToString');
@@ -2871,7 +2869,7 @@ function baseGetTag(value) {
 
 module.exports = baseGetTag;
 
-},{"./_Symbol":15,"./_getRawTag":71,"./_objectToString":105}],34:[function(require,module,exports){
+},{"./_Symbol":14,"./_getRawTag":70,"./_objectToString":104}],33:[function(require,module,exports){
 /**
  * The base implementation of `_.hasIn` without support for deep paths.
  *
@@ -2886,7 +2884,7 @@ function baseHasIn(object, key) {
 
 module.exports = baseHasIn;
 
-},{}],35:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 var baseFindIndex = require('./_baseFindIndex'),
     baseIsNaN = require('./_baseIsNaN'),
     strictIndexOf = require('./_strictIndexOf');
@@ -2908,7 +2906,7 @@ function baseIndexOf(array, value, fromIndex) {
 
 module.exports = baseIndexOf;
 
-},{"./_baseFindIndex":29,"./_baseIsNaN":40,"./_strictIndexOf":119}],36:[function(require,module,exports){
+},{"./_baseFindIndex":28,"./_baseIsNaN":39,"./_strictIndexOf":118}],35:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     isObjectLike = require('./isObjectLike');
 
@@ -2928,7 +2926,7 @@ function baseIsArguments(value) {
 
 module.exports = baseIsArguments;
 
-},{"./_baseGetTag":33,"./isObjectLike":139}],37:[function(require,module,exports){
+},{"./_baseGetTag":32,"./isObjectLike":138}],36:[function(require,module,exports){
 var baseIsEqualDeep = require('./_baseIsEqualDeep'),
     isObjectLike = require('./isObjectLike');
 
@@ -2958,7 +2956,7 @@ function baseIsEqual(value, other, bitmask, customizer, stack) {
 
 module.exports = baseIsEqual;
 
-},{"./_baseIsEqualDeep":38,"./isObjectLike":139}],38:[function(require,module,exports){
+},{"./_baseIsEqualDeep":37,"./isObjectLike":138}],37:[function(require,module,exports){
 var Stack = require('./_Stack'),
     equalArrays = require('./_equalArrays'),
     equalByTag = require('./_equalByTag'),
@@ -3043,7 +3041,7 @@ function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {
 
 module.exports = baseIsEqualDeep;
 
-},{"./_Stack":14,"./_equalArrays":63,"./_equalByTag":64,"./_equalObjects":65,"./_getTag":73,"./isArray":132,"./isBuffer":135,"./isTypedArray":141}],39:[function(require,module,exports){
+},{"./_Stack":13,"./_equalArrays":62,"./_equalByTag":63,"./_equalObjects":64,"./_getTag":72,"./isArray":131,"./isBuffer":134,"./isTypedArray":140}],38:[function(require,module,exports){
 var Stack = require('./_Stack'),
     baseIsEqual = require('./_baseIsEqual');
 
@@ -3107,7 +3105,7 @@ function baseIsMatch(object, source, matchData, customizer) {
 
 module.exports = baseIsMatch;
 
-},{"./_Stack":14,"./_baseIsEqual":37}],40:[function(require,module,exports){
+},{"./_Stack":13,"./_baseIsEqual":36}],39:[function(require,module,exports){
 /**
  * The base implementation of `_.isNaN` without support for number objects.
  *
@@ -3121,7 +3119,7 @@ function baseIsNaN(value) {
 
 module.exports = baseIsNaN;
 
-},{}],41:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 var isFunction = require('./isFunction'),
     isMasked = require('./_isMasked'),
     isObject = require('./isObject'),
@@ -3170,7 +3168,7 @@ function baseIsNative(value) {
 
 module.exports = baseIsNative;
 
-},{"./_isMasked":86,"./_toSource":123,"./isFunction":136,"./isObject":138}],42:[function(require,module,exports){
+},{"./_isMasked":85,"./_toSource":122,"./isFunction":135,"./isObject":137}],41:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     isLength = require('./isLength'),
     isObjectLike = require('./isObjectLike');
@@ -3232,7 +3230,7 @@ function baseIsTypedArray(value) {
 
 module.exports = baseIsTypedArray;
 
-},{"./_baseGetTag":33,"./isLength":137,"./isObjectLike":139}],43:[function(require,module,exports){
+},{"./_baseGetTag":32,"./isLength":136,"./isObjectLike":138}],42:[function(require,module,exports){
 var baseMatches = require('./_baseMatches'),
     baseMatchesProperty = require('./_baseMatchesProperty'),
     identity = require('./identity'),
@@ -3265,7 +3263,7 @@ function baseIteratee(value) {
 
 module.exports = baseIteratee;
 
-},{"./_baseMatches":45,"./_baseMatchesProperty":46,"./identity":130,"./isArray":132,"./property":145}],44:[function(require,module,exports){
+},{"./_baseMatches":44,"./_baseMatchesProperty":45,"./identity":129,"./isArray":131,"./property":144}],43:[function(require,module,exports){
 var isPrototype = require('./_isPrototype'),
     nativeKeys = require('./_nativeKeys');
 
@@ -3297,7 +3295,7 @@ function baseKeys(object) {
 
 module.exports = baseKeys;
 
-},{"./_isPrototype":87,"./_nativeKeys":103}],45:[function(require,module,exports){
+},{"./_isPrototype":86,"./_nativeKeys":102}],44:[function(require,module,exports){
 var baseIsMatch = require('./_baseIsMatch'),
     getMatchData = require('./_getMatchData'),
     matchesStrictComparable = require('./_matchesStrictComparable');
@@ -3321,7 +3319,7 @@ function baseMatches(source) {
 
 module.exports = baseMatches;
 
-},{"./_baseIsMatch":39,"./_getMatchData":69,"./_matchesStrictComparable":100}],46:[function(require,module,exports){
+},{"./_baseIsMatch":38,"./_getMatchData":68,"./_matchesStrictComparable":99}],45:[function(require,module,exports){
 var baseIsEqual = require('./_baseIsEqual'),
     get = require('./get'),
     hasIn = require('./hasIn'),
@@ -3356,7 +3354,7 @@ function baseMatchesProperty(path, srcValue) {
 
 module.exports = baseMatchesProperty;
 
-},{"./_baseIsEqual":37,"./_isKey":84,"./_isStrictComparable":88,"./_matchesStrictComparable":100,"./_toKey":122,"./get":128,"./hasIn":129}],47:[function(require,module,exports){
+},{"./_baseIsEqual":36,"./_isKey":83,"./_isStrictComparable":87,"./_matchesStrictComparable":99,"./_toKey":121,"./get":127,"./hasIn":128}],46:[function(require,module,exports){
 /**
  * The base implementation of `_.property` without support for deep paths.
  *
@@ -3372,7 +3370,7 @@ function baseProperty(key) {
 
 module.exports = baseProperty;
 
-},{}],48:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 var baseGet = require('./_baseGet');
 
 /**
@@ -3390,7 +3388,7 @@ function basePropertyDeep(path) {
 
 module.exports = basePropertyDeep;
 
-},{"./_baseGet":31}],49:[function(require,module,exports){
+},{"./_baseGet":30}],48:[function(require,module,exports){
 var identity = require('./identity'),
     overRest = require('./_overRest'),
     setToString = require('./_setToString');
@@ -3409,7 +3407,7 @@ function baseRest(func, start) {
 
 module.exports = baseRest;
 
-},{"./_overRest":107,"./_setToString":112,"./identity":130}],50:[function(require,module,exports){
+},{"./_overRest":106,"./_setToString":111,"./identity":129}],49:[function(require,module,exports){
 var constant = require('./constant'),
     defineProperty = require('./_defineProperty'),
     identity = require('./identity');
@@ -3433,7 +3431,7 @@ var baseSetToString = !defineProperty ? identity : function(func, string) {
 
 module.exports = baseSetToString;
 
-},{"./_defineProperty":62,"./constant":125,"./identity":130}],51:[function(require,module,exports){
+},{"./_defineProperty":61,"./constant":124,"./identity":129}],50:[function(require,module,exports){
 /**
  * The base implementation of `_.slice` without an iteratee call guard.
  *
@@ -3466,7 +3464,7 @@ function baseSlice(array, start, end) {
 
 module.exports = baseSlice;
 
-},{}],52:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 /**
  * The base implementation of `_.times` without support for iteratee shorthands
  * or max array length checks.
@@ -3488,7 +3486,7 @@ function baseTimes(n, iteratee) {
 
 module.exports = baseTimes;
 
-},{}],53:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     arrayMap = require('./_arrayMap'),
     isArray = require('./isArray'),
@@ -3527,7 +3525,7 @@ function baseToString(value) {
 
 module.exports = baseToString;
 
-},{"./_Symbol":15,"./_arrayMap":23,"./isArray":132,"./isSymbol":140}],54:[function(require,module,exports){
+},{"./_Symbol":14,"./_arrayMap":22,"./isArray":131,"./isSymbol":139}],53:[function(require,module,exports){
 /**
  * The base implementation of `_.unary` without support for storing metadata.
  *
@@ -3543,7 +3541,7 @@ function baseUnary(func) {
 
 module.exports = baseUnary;
 
-},{}],55:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 var SetCache = require('./_SetCache'),
     arrayIncludes = require('./_arrayIncludes'),
     arrayIncludesWith = require('./_arrayIncludesWith'),
@@ -3617,7 +3615,7 @@ function baseUniq(array, iteratee, comparator) {
 
 module.exports = baseUniq;
 
-},{"./_SetCache":13,"./_arrayIncludes":20,"./_arrayIncludesWith":21,"./_cacheHas":56,"./_createSet":61,"./_setToArray":111}],56:[function(require,module,exports){
+},{"./_SetCache":12,"./_arrayIncludes":19,"./_arrayIncludesWith":20,"./_cacheHas":55,"./_createSet":60,"./_setToArray":110}],55:[function(require,module,exports){
 /**
  * Checks if a `cache` value for `key` exists.
  *
@@ -3632,7 +3630,7 @@ function cacheHas(cache, key) {
 
 module.exports = cacheHas;
 
-},{}],57:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 var isArray = require('./isArray'),
     isKey = require('./_isKey'),
     stringToPath = require('./_stringToPath'),
@@ -3655,7 +3653,7 @@ function castPath(value, object) {
 
 module.exports = castPath;
 
-},{"./_isKey":84,"./_stringToPath":121,"./isArray":132,"./toString":148}],58:[function(require,module,exports){
+},{"./_isKey":83,"./_stringToPath":120,"./isArray":131,"./toString":147}],57:[function(require,module,exports){
 var baseSlice = require('./_baseSlice');
 
 /**
@@ -3675,7 +3673,7 @@ function castSlice(array, start, end) {
 
 module.exports = castSlice;
 
-},{"./_baseSlice":51}],59:[function(require,module,exports){
+},{"./_baseSlice":50}],58:[function(require,module,exports){
 var root = require('./_root');
 
 /** Used to detect overreaching core-js shims. */
@@ -3683,7 +3681,7 @@ var coreJsData = root['__core-js_shared__'];
 
 module.exports = coreJsData;
 
-},{"./_root":108}],60:[function(require,module,exports){
+},{"./_root":107}],59:[function(require,module,exports){
 var castSlice = require('./_castSlice'),
     hasUnicode = require('./_hasUnicode'),
     stringToArray = require('./_stringToArray'),
@@ -3718,7 +3716,7 @@ function createCaseFirst(methodName) {
 
 module.exports = createCaseFirst;
 
-},{"./_castSlice":58,"./_hasUnicode":76,"./_stringToArray":120,"./toString":148}],61:[function(require,module,exports){
+},{"./_castSlice":57,"./_hasUnicode":75,"./_stringToArray":119,"./toString":147}],60:[function(require,module,exports){
 var Set = require('./_Set'),
     noop = require('./noop'),
     setToArray = require('./_setToArray');
@@ -3739,7 +3737,7 @@ var createSet = !(Set && (1 / setToArray(new Set([,-0]))[1]) == INFINITY) ? noop
 
 module.exports = createSet;
 
-},{"./_Set":12,"./_setToArray":111,"./noop":144}],62:[function(require,module,exports){
+},{"./_Set":11,"./_setToArray":110,"./noop":143}],61:[function(require,module,exports){
 var getNative = require('./_getNative');
 
 var defineProperty = (function() {
@@ -3752,7 +3750,7 @@ var defineProperty = (function() {
 
 module.exports = defineProperty;
 
-},{"./_getNative":70}],63:[function(require,module,exports){
+},{"./_getNative":69}],62:[function(require,module,exports){
 var SetCache = require('./_SetCache'),
     arraySome = require('./_arraySome'),
     cacheHas = require('./_cacheHas');
@@ -3838,7 +3836,7 @@ function equalArrays(array, other, bitmask, customizer, equalFunc, stack) {
 
 module.exports = equalArrays;
 
-},{"./_SetCache":13,"./_arraySome":25,"./_cacheHas":56}],64:[function(require,module,exports){
+},{"./_SetCache":12,"./_arraySome":24,"./_cacheHas":55}],63:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     Uint8Array = require('./_Uint8Array'),
     eq = require('./eq'),
@@ -3952,7 +3950,7 @@ function equalByTag(object, other, tag, bitmask, customizer, equalFunc, stack) {
 
 module.exports = equalByTag;
 
-},{"./_Symbol":15,"./_Uint8Array":16,"./_equalArrays":63,"./_mapToArray":99,"./_setToArray":111,"./eq":127}],65:[function(require,module,exports){
+},{"./_Symbol":14,"./_Uint8Array":15,"./_equalArrays":62,"./_mapToArray":98,"./_setToArray":110,"./eq":126}],64:[function(require,module,exports){
 var getAllKeys = require('./_getAllKeys');
 
 /** Used to compose bitmasks for value comparisons. */
@@ -4044,7 +4042,7 @@ function equalObjects(object, other, bitmask, customizer, equalFunc, stack) {
 
 module.exports = equalObjects;
 
-},{"./_getAllKeys":67}],66:[function(require,module,exports){
+},{"./_getAllKeys":66}],65:[function(require,module,exports){
 (function (global){(function (){
 /** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
@@ -4052,7 +4050,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 module.exports = freeGlobal;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],67:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 var baseGetAllKeys = require('./_baseGetAllKeys'),
     getSymbols = require('./_getSymbols'),
     keys = require('./keys');
@@ -4070,7 +4068,7 @@ function getAllKeys(object) {
 
 module.exports = getAllKeys;
 
-},{"./_baseGetAllKeys":32,"./_getSymbols":72,"./keys":142}],68:[function(require,module,exports){
+},{"./_baseGetAllKeys":31,"./_getSymbols":71,"./keys":141}],67:[function(require,module,exports){
 var isKeyable = require('./_isKeyable');
 
 /**
@@ -4090,7 +4088,7 @@ function getMapData(map, key) {
 
 module.exports = getMapData;
 
-},{"./_isKeyable":85}],69:[function(require,module,exports){
+},{"./_isKeyable":84}],68:[function(require,module,exports){
 var isStrictComparable = require('./_isStrictComparable'),
     keys = require('./keys');
 
@@ -4116,7 +4114,7 @@ function getMatchData(object) {
 
 module.exports = getMatchData;
 
-},{"./_isStrictComparable":88,"./keys":142}],70:[function(require,module,exports){
+},{"./_isStrictComparable":87,"./keys":141}],69:[function(require,module,exports){
 var baseIsNative = require('./_baseIsNative'),
     getValue = require('./_getValue');
 
@@ -4135,7 +4133,7 @@ function getNative(object, key) {
 
 module.exports = getNative;
 
-},{"./_baseIsNative":41,"./_getValue":74}],71:[function(require,module,exports){
+},{"./_baseIsNative":40,"./_getValue":73}],70:[function(require,module,exports){
 var Symbol = require('./_Symbol');
 
 /** Used for built-in method references. */
@@ -4183,7 +4181,7 @@ function getRawTag(value) {
 
 module.exports = getRawTag;
 
-},{"./_Symbol":15}],72:[function(require,module,exports){
+},{"./_Symbol":14}],71:[function(require,module,exports){
 var arrayFilter = require('./_arrayFilter'),
     stubArray = require('./stubArray');
 
@@ -4215,7 +4213,7 @@ var getSymbols = !nativeGetSymbols ? stubArray : function(object) {
 
 module.exports = getSymbols;
 
-},{"./_arrayFilter":19,"./stubArray":146}],73:[function(require,module,exports){
+},{"./_arrayFilter":18,"./stubArray":145}],72:[function(require,module,exports){
 var DataView = require('./_DataView'),
     Map = require('./_Map'),
     Promise = require('./_Promise'),
@@ -4275,7 +4273,7 @@ if ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||
 
 module.exports = getTag;
 
-},{"./_DataView":6,"./_Map":9,"./_Promise":11,"./_Set":12,"./_WeakMap":17,"./_baseGetTag":33,"./_toSource":123}],74:[function(require,module,exports){
+},{"./_DataView":5,"./_Map":8,"./_Promise":10,"./_Set":11,"./_WeakMap":16,"./_baseGetTag":32,"./_toSource":122}],73:[function(require,module,exports){
 /**
  * Gets the value at `key` of `object`.
  *
@@ -4290,7 +4288,7 @@ function getValue(object, key) {
 
 module.exports = getValue;
 
-},{}],75:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 var castPath = require('./_castPath'),
     isArguments = require('./isArguments'),
     isArray = require('./isArray'),
@@ -4331,7 +4329,7 @@ function hasPath(object, path, hasFunc) {
 
 module.exports = hasPath;
 
-},{"./_castPath":57,"./_isIndex":83,"./_toKey":122,"./isArguments":131,"./isArray":132,"./isLength":137}],76:[function(require,module,exports){
+},{"./_castPath":56,"./_isIndex":82,"./_toKey":121,"./isArguments":130,"./isArray":131,"./isLength":136}],75:[function(require,module,exports){
 /** Used to compose unicode character classes. */
 var rsAstralRange = '\\ud800-\\udfff',
     rsComboMarksRange = '\\u0300-\\u036f',
@@ -4359,7 +4357,7 @@ function hasUnicode(string) {
 
 module.exports = hasUnicode;
 
-},{}],77:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 /**
@@ -4376,7 +4374,7 @@ function hashClear() {
 
 module.exports = hashClear;
 
-},{"./_nativeCreate":102}],78:[function(require,module,exports){
+},{"./_nativeCreate":101}],77:[function(require,module,exports){
 /**
  * Removes `key` and its value from the hash.
  *
@@ -4395,7 +4393,7 @@ function hashDelete(key) {
 
 module.exports = hashDelete;
 
-},{}],79:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 /** Used to stand-in for `undefined` hash values. */
@@ -4427,7 +4425,7 @@ function hashGet(key) {
 
 module.exports = hashGet;
 
-},{"./_nativeCreate":102}],80:[function(require,module,exports){
+},{"./_nativeCreate":101}],79:[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 /** Used for built-in method references. */
@@ -4452,7 +4450,7 @@ function hashHas(key) {
 
 module.exports = hashHas;
 
-},{"./_nativeCreate":102}],81:[function(require,module,exports){
+},{"./_nativeCreate":101}],80:[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 /** Used to stand-in for `undefined` hash values. */
@@ -4477,7 +4475,7 @@ function hashSet(key, value) {
 
 module.exports = hashSet;
 
-},{"./_nativeCreate":102}],82:[function(require,module,exports){
+},{"./_nativeCreate":101}],81:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     isArguments = require('./isArguments'),
     isArray = require('./isArray');
@@ -4499,7 +4497,7 @@ function isFlattenable(value) {
 
 module.exports = isFlattenable;
 
-},{"./_Symbol":15,"./isArguments":131,"./isArray":132}],83:[function(require,module,exports){
+},{"./_Symbol":14,"./isArguments":130,"./isArray":131}],82:[function(require,module,exports){
 /** Used as references for various `Number` constants. */
 var MAX_SAFE_INTEGER = 9007199254740991;
 
@@ -4526,7 +4524,7 @@ function isIndex(value, length) {
 
 module.exports = isIndex;
 
-},{}],84:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 var isArray = require('./isArray'),
     isSymbol = require('./isSymbol');
 
@@ -4557,7 +4555,7 @@ function isKey(value, object) {
 
 module.exports = isKey;
 
-},{"./isArray":132,"./isSymbol":140}],85:[function(require,module,exports){
+},{"./isArray":131,"./isSymbol":139}],84:[function(require,module,exports){
 /**
  * Checks if `value` is suitable for use as unique object key.
  *
@@ -4574,7 +4572,7 @@ function isKeyable(value) {
 
 module.exports = isKeyable;
 
-},{}],86:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 var coreJsData = require('./_coreJsData');
 
 /** Used to detect methods masquerading as native. */
@@ -4596,7 +4594,7 @@ function isMasked(func) {
 
 module.exports = isMasked;
 
-},{"./_coreJsData":59}],87:[function(require,module,exports){
+},{"./_coreJsData":58}],86:[function(require,module,exports){
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -4616,7 +4614,7 @@ function isPrototype(value) {
 
 module.exports = isPrototype;
 
-},{}],88:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 var isObject = require('./isObject');
 
 /**
@@ -4633,7 +4631,7 @@ function isStrictComparable(value) {
 
 module.exports = isStrictComparable;
 
-},{"./isObject":138}],89:[function(require,module,exports){
+},{"./isObject":137}],88:[function(require,module,exports){
 /**
  * Removes all key-value entries from the list cache.
  *
@@ -4648,7 +4646,7 @@ function listCacheClear() {
 
 module.exports = listCacheClear;
 
-},{}],90:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 /** Used for built-in method references. */
@@ -4685,7 +4683,7 @@ function listCacheDelete(key) {
 
 module.exports = listCacheDelete;
 
-},{"./_assocIndexOf":27}],91:[function(require,module,exports){
+},{"./_assocIndexOf":26}],90:[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 /**
@@ -4706,7 +4704,7 @@ function listCacheGet(key) {
 
 module.exports = listCacheGet;
 
-},{"./_assocIndexOf":27}],92:[function(require,module,exports){
+},{"./_assocIndexOf":26}],91:[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 /**
@@ -4724,7 +4722,7 @@ function listCacheHas(key) {
 
 module.exports = listCacheHas;
 
-},{"./_assocIndexOf":27}],93:[function(require,module,exports){
+},{"./_assocIndexOf":26}],92:[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 /**
@@ -4752,7 +4750,7 @@ function listCacheSet(key, value) {
 
 module.exports = listCacheSet;
 
-},{"./_assocIndexOf":27}],94:[function(require,module,exports){
+},{"./_assocIndexOf":26}],93:[function(require,module,exports){
 var Hash = require('./_Hash'),
     ListCache = require('./_ListCache'),
     Map = require('./_Map');
@@ -4775,7 +4773,7 @@ function mapCacheClear() {
 
 module.exports = mapCacheClear;
 
-},{"./_Hash":7,"./_ListCache":8,"./_Map":9}],95:[function(require,module,exports){
+},{"./_Hash":6,"./_ListCache":7,"./_Map":8}],94:[function(require,module,exports){
 var getMapData = require('./_getMapData');
 
 /**
@@ -4795,7 +4793,7 @@ function mapCacheDelete(key) {
 
 module.exports = mapCacheDelete;
 
-},{"./_getMapData":68}],96:[function(require,module,exports){
+},{"./_getMapData":67}],95:[function(require,module,exports){
 var getMapData = require('./_getMapData');
 
 /**
@@ -4813,7 +4811,7 @@ function mapCacheGet(key) {
 
 module.exports = mapCacheGet;
 
-},{"./_getMapData":68}],97:[function(require,module,exports){
+},{"./_getMapData":67}],96:[function(require,module,exports){
 var getMapData = require('./_getMapData');
 
 /**
@@ -4831,7 +4829,7 @@ function mapCacheHas(key) {
 
 module.exports = mapCacheHas;
 
-},{"./_getMapData":68}],98:[function(require,module,exports){
+},{"./_getMapData":67}],97:[function(require,module,exports){
 var getMapData = require('./_getMapData');
 
 /**
@@ -4855,7 +4853,7 @@ function mapCacheSet(key, value) {
 
 module.exports = mapCacheSet;
 
-},{"./_getMapData":68}],99:[function(require,module,exports){
+},{"./_getMapData":67}],98:[function(require,module,exports){
 /**
  * Converts `map` to its key-value pairs.
  *
@@ -4875,7 +4873,7 @@ function mapToArray(map) {
 
 module.exports = mapToArray;
 
-},{}],100:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 /**
  * A specialized version of `matchesProperty` for source values suitable
  * for strict equality comparisons, i.e. `===`.
@@ -4897,7 +4895,7 @@ function matchesStrictComparable(key, srcValue) {
 
 module.exports = matchesStrictComparable;
 
-},{}],101:[function(require,module,exports){
+},{}],100:[function(require,module,exports){
 var memoize = require('./memoize');
 
 /** Used as the maximum memoize cache size. */
@@ -4925,7 +4923,7 @@ function memoizeCapped(func) {
 
 module.exports = memoizeCapped;
 
-},{"./memoize":143}],102:[function(require,module,exports){
+},{"./memoize":142}],101:[function(require,module,exports){
 var getNative = require('./_getNative');
 
 /* Built-in method references that are verified to be native. */
@@ -4933,7 +4931,7 @@ var nativeCreate = getNative(Object, 'create');
 
 module.exports = nativeCreate;
 
-},{"./_getNative":70}],103:[function(require,module,exports){
+},{"./_getNative":69}],102:[function(require,module,exports){
 var overArg = require('./_overArg');
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
@@ -4941,7 +4939,7 @@ var nativeKeys = overArg(Object.keys, Object);
 
 module.exports = nativeKeys;
 
-},{"./_overArg":106}],104:[function(require,module,exports){
+},{"./_overArg":105}],103:[function(require,module,exports){
 var freeGlobal = require('./_freeGlobal');
 
 /** Detect free variable `exports`. */
@@ -4973,7 +4971,7 @@ var nodeUtil = (function() {
 
 module.exports = nodeUtil;
 
-},{"./_freeGlobal":66}],105:[function(require,module,exports){
+},{"./_freeGlobal":65}],104:[function(require,module,exports){
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
 
@@ -4997,7 +4995,7 @@ function objectToString(value) {
 
 module.exports = objectToString;
 
-},{}],106:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 /**
  * Creates a unary function that invokes `func` with its argument transformed.
  *
@@ -5014,7 +5012,7 @@ function overArg(func, transform) {
 
 module.exports = overArg;
 
-},{}],107:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 var apply = require('./_apply');
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
@@ -5052,7 +5050,7 @@ function overRest(func, start, transform) {
 
 module.exports = overRest;
 
-},{"./_apply":18}],108:[function(require,module,exports){
+},{"./_apply":17}],107:[function(require,module,exports){
 var freeGlobal = require('./_freeGlobal');
 
 /** Detect free variable `self`. */
@@ -5063,7 +5061,7 @@ var root = freeGlobal || freeSelf || Function('return this')();
 
 module.exports = root;
 
-},{"./_freeGlobal":66}],109:[function(require,module,exports){
+},{"./_freeGlobal":65}],108:[function(require,module,exports){
 /** Used to stand-in for `undefined` hash values. */
 var HASH_UNDEFINED = '__lodash_hash_undefined__';
 
@@ -5084,7 +5082,7 @@ function setCacheAdd(value) {
 
 module.exports = setCacheAdd;
 
-},{}],110:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 /**
  * Checks if `value` is in the array cache.
  *
@@ -5100,7 +5098,7 @@ function setCacheHas(value) {
 
 module.exports = setCacheHas;
 
-},{}],111:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 /**
  * Converts `set` to an array of its values.
  *
@@ -5120,7 +5118,7 @@ function setToArray(set) {
 
 module.exports = setToArray;
 
-},{}],112:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 var baseSetToString = require('./_baseSetToString'),
     shortOut = require('./_shortOut');
 
@@ -5136,7 +5134,7 @@ var setToString = shortOut(baseSetToString);
 
 module.exports = setToString;
 
-},{"./_baseSetToString":50,"./_shortOut":113}],113:[function(require,module,exports){
+},{"./_baseSetToString":49,"./_shortOut":112}],112:[function(require,module,exports){
 /** Used to detect hot functions by number of calls within a span of milliseconds. */
 var HOT_COUNT = 800,
     HOT_SPAN = 16;
@@ -5175,7 +5173,7 @@ function shortOut(func) {
 
 module.exports = shortOut;
 
-},{}],114:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 var ListCache = require('./_ListCache');
 
 /**
@@ -5192,7 +5190,7 @@ function stackClear() {
 
 module.exports = stackClear;
 
-},{"./_ListCache":8}],115:[function(require,module,exports){
+},{"./_ListCache":7}],114:[function(require,module,exports){
 /**
  * Removes `key` and its value from the stack.
  *
@@ -5212,7 +5210,7 @@ function stackDelete(key) {
 
 module.exports = stackDelete;
 
-},{}],116:[function(require,module,exports){
+},{}],115:[function(require,module,exports){
 /**
  * Gets the stack value for `key`.
  *
@@ -5228,7 +5226,7 @@ function stackGet(key) {
 
 module.exports = stackGet;
 
-},{}],117:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 /**
  * Checks if a stack value for `key` exists.
  *
@@ -5244,7 +5242,7 @@ function stackHas(key) {
 
 module.exports = stackHas;
 
-},{}],118:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 var ListCache = require('./_ListCache'),
     Map = require('./_Map'),
     MapCache = require('./_MapCache');
@@ -5280,7 +5278,7 @@ function stackSet(key, value) {
 
 module.exports = stackSet;
 
-},{"./_ListCache":8,"./_Map":9,"./_MapCache":10}],119:[function(require,module,exports){
+},{"./_ListCache":7,"./_Map":8,"./_MapCache":9}],118:[function(require,module,exports){
 /**
  * A specialized version of `_.indexOf` which performs strict equality
  * comparisons of values, i.e. `===`.
@@ -5305,7 +5303,7 @@ function strictIndexOf(array, value, fromIndex) {
 
 module.exports = strictIndexOf;
 
-},{}],120:[function(require,module,exports){
+},{}],119:[function(require,module,exports){
 var asciiToArray = require('./_asciiToArray'),
     hasUnicode = require('./_hasUnicode'),
     unicodeToArray = require('./_unicodeToArray');
@@ -5325,7 +5323,7 @@ function stringToArray(string) {
 
 module.exports = stringToArray;
 
-},{"./_asciiToArray":26,"./_hasUnicode":76,"./_unicodeToArray":124}],121:[function(require,module,exports){
+},{"./_asciiToArray":25,"./_hasUnicode":75,"./_unicodeToArray":123}],120:[function(require,module,exports){
 var memoizeCapped = require('./_memoizeCapped');
 
 /** Used to match property names within property paths. */
@@ -5354,7 +5352,7 @@ var stringToPath = memoizeCapped(function(string) {
 
 module.exports = stringToPath;
 
-},{"./_memoizeCapped":101}],122:[function(require,module,exports){
+},{"./_memoizeCapped":100}],121:[function(require,module,exports){
 var isSymbol = require('./isSymbol');
 
 /** Used as references for various `Number` constants. */
@@ -5377,7 +5375,7 @@ function toKey(value) {
 
 module.exports = toKey;
 
-},{"./isSymbol":140}],123:[function(require,module,exports){
+},{"./isSymbol":139}],122:[function(require,module,exports){
 /** Used for built-in method references. */
 var funcProto = Function.prototype;
 
@@ -5405,7 +5403,7 @@ function toSource(func) {
 
 module.exports = toSource;
 
-},{}],124:[function(require,module,exports){
+},{}],123:[function(require,module,exports){
 /** Used to compose unicode character classes. */
 var rsAstralRange = '\\ud800-\\udfff',
     rsComboMarksRange = '\\u0300-\\u036f',
@@ -5447,7 +5445,7 @@ function unicodeToArray(string) {
 
 module.exports = unicodeToArray;
 
-},{}],125:[function(require,module,exports){
+},{}],124:[function(require,module,exports){
 /**
  * Creates a function that returns `value`.
  *
@@ -5475,7 +5473,7 @@ function constant(value) {
 
 module.exports = constant;
 
-},{}],126:[function(require,module,exports){
+},{}],125:[function(require,module,exports){
 var baseDifference = require('./_baseDifference'),
     baseFlatten = require('./_baseFlatten'),
     baseRest = require('./_baseRest'),
@@ -5510,7 +5508,7 @@ var difference = baseRest(function(array, values) {
 
 module.exports = difference;
 
-},{"./_baseDifference":28,"./_baseFlatten":30,"./_baseRest":49,"./isArrayLikeObject":134}],127:[function(require,module,exports){
+},{"./_baseDifference":27,"./_baseFlatten":29,"./_baseRest":48,"./isArrayLikeObject":133}],126:[function(require,module,exports){
 /**
  * Performs a
  * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
@@ -5549,7 +5547,7 @@ function eq(value, other) {
 
 module.exports = eq;
 
-},{}],128:[function(require,module,exports){
+},{}],127:[function(require,module,exports){
 var baseGet = require('./_baseGet');
 
 /**
@@ -5584,7 +5582,7 @@ function get(object, path, defaultValue) {
 
 module.exports = get;
 
-},{"./_baseGet":31}],129:[function(require,module,exports){
+},{"./_baseGet":30}],128:[function(require,module,exports){
 var baseHasIn = require('./_baseHasIn'),
     hasPath = require('./_hasPath');
 
@@ -5620,7 +5618,7 @@ function hasIn(object, path) {
 
 module.exports = hasIn;
 
-},{"./_baseHasIn":34,"./_hasPath":75}],130:[function(require,module,exports){
+},{"./_baseHasIn":33,"./_hasPath":74}],129:[function(require,module,exports){
 /**
  * This method returns the first argument it receives.
  *
@@ -5643,7 +5641,7 @@ function identity(value) {
 
 module.exports = identity;
 
-},{}],131:[function(require,module,exports){
+},{}],130:[function(require,module,exports){
 var baseIsArguments = require('./_baseIsArguments'),
     isObjectLike = require('./isObjectLike');
 
@@ -5681,7 +5679,7 @@ var isArguments = baseIsArguments(function() { return arguments; }()) ? baseIsAr
 
 module.exports = isArguments;
 
-},{"./_baseIsArguments":36,"./isObjectLike":139}],132:[function(require,module,exports){
+},{"./_baseIsArguments":35,"./isObjectLike":138}],131:[function(require,module,exports){
 /**
  * Checks if `value` is classified as an `Array` object.
  *
@@ -5709,7 +5707,7 @@ var isArray = Array.isArray;
 
 module.exports = isArray;
 
-},{}],133:[function(require,module,exports){
+},{}],132:[function(require,module,exports){
 var isFunction = require('./isFunction'),
     isLength = require('./isLength');
 
@@ -5744,7 +5742,7 @@ function isArrayLike(value) {
 
 module.exports = isArrayLike;
 
-},{"./isFunction":136,"./isLength":137}],134:[function(require,module,exports){
+},{"./isFunction":135,"./isLength":136}],133:[function(require,module,exports){
 var isArrayLike = require('./isArrayLike'),
     isObjectLike = require('./isObjectLike');
 
@@ -5779,7 +5777,7 @@ function isArrayLikeObject(value) {
 
 module.exports = isArrayLikeObject;
 
-},{"./isArrayLike":133,"./isObjectLike":139}],135:[function(require,module,exports){
+},{"./isArrayLike":132,"./isObjectLike":138}],134:[function(require,module,exports){
 var root = require('./_root'),
     stubFalse = require('./stubFalse');
 
@@ -5819,7 +5817,7 @@ var isBuffer = nativeIsBuffer || stubFalse;
 
 module.exports = isBuffer;
 
-},{"./_root":108,"./stubFalse":147}],136:[function(require,module,exports){
+},{"./_root":107,"./stubFalse":146}],135:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     isObject = require('./isObject');
 
@@ -5858,7 +5856,7 @@ function isFunction(value) {
 
 module.exports = isFunction;
 
-},{"./_baseGetTag":33,"./isObject":138}],137:[function(require,module,exports){
+},{"./_baseGetTag":32,"./isObject":137}],136:[function(require,module,exports){
 /** Used as references for various `Number` constants. */
 var MAX_SAFE_INTEGER = 9007199254740991;
 
@@ -5895,7 +5893,7 @@ function isLength(value) {
 
 module.exports = isLength;
 
-},{}],138:[function(require,module,exports){
+},{}],137:[function(require,module,exports){
 /**
  * Checks if `value` is the
  * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
@@ -5928,7 +5926,7 @@ function isObject(value) {
 
 module.exports = isObject;
 
-},{}],139:[function(require,module,exports){
+},{}],138:[function(require,module,exports){
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
  * and has a `typeof` result of "object".
@@ -5959,7 +5957,7 @@ function isObjectLike(value) {
 
 module.exports = isObjectLike;
 
-},{}],140:[function(require,module,exports){
+},{}],139:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     isObjectLike = require('./isObjectLike');
 
@@ -5990,7 +5988,7 @@ function isSymbol(value) {
 
 module.exports = isSymbol;
 
-},{"./_baseGetTag":33,"./isObjectLike":139}],141:[function(require,module,exports){
+},{"./_baseGetTag":32,"./isObjectLike":138}],140:[function(require,module,exports){
 var baseIsTypedArray = require('./_baseIsTypedArray'),
     baseUnary = require('./_baseUnary'),
     nodeUtil = require('./_nodeUtil');
@@ -6019,7 +6017,7 @@ var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedA
 
 module.exports = isTypedArray;
 
-},{"./_baseIsTypedArray":42,"./_baseUnary":54,"./_nodeUtil":104}],142:[function(require,module,exports){
+},{"./_baseIsTypedArray":41,"./_baseUnary":53,"./_nodeUtil":103}],141:[function(require,module,exports){
 var arrayLikeKeys = require('./_arrayLikeKeys'),
     baseKeys = require('./_baseKeys'),
     isArrayLike = require('./isArrayLike');
@@ -6058,7 +6056,7 @@ function keys(object) {
 
 module.exports = keys;
 
-},{"./_arrayLikeKeys":22,"./_baseKeys":44,"./isArrayLike":133}],143:[function(require,module,exports){
+},{"./_arrayLikeKeys":21,"./_baseKeys":43,"./isArrayLike":132}],142:[function(require,module,exports){
 var MapCache = require('./_MapCache');
 
 /** Error message constants. */
@@ -6133,7 +6131,7 @@ memoize.Cache = MapCache;
 
 module.exports = memoize;
 
-},{"./_MapCache":10}],144:[function(require,module,exports){
+},{"./_MapCache":9}],143:[function(require,module,exports){
 /**
  * This method returns `undefined`.
  *
@@ -6152,7 +6150,7 @@ function noop() {
 
 module.exports = noop;
 
-},{}],145:[function(require,module,exports){
+},{}],144:[function(require,module,exports){
 var baseProperty = require('./_baseProperty'),
     basePropertyDeep = require('./_basePropertyDeep'),
     isKey = require('./_isKey'),
@@ -6186,7 +6184,7 @@ function property(path) {
 
 module.exports = property;
 
-},{"./_baseProperty":47,"./_basePropertyDeep":48,"./_isKey":84,"./_toKey":122}],146:[function(require,module,exports){
+},{"./_baseProperty":46,"./_basePropertyDeep":47,"./_isKey":83,"./_toKey":121}],145:[function(require,module,exports){
 /**
  * This method returns a new empty array.
  *
@@ -6211,7 +6209,7 @@ function stubArray() {
 
 module.exports = stubArray;
 
-},{}],147:[function(require,module,exports){
+},{}],146:[function(require,module,exports){
 /**
  * This method returns `false`.
  *
@@ -6231,7 +6229,7 @@ function stubFalse() {
 
 module.exports = stubFalse;
 
-},{}],148:[function(require,module,exports){
+},{}],147:[function(require,module,exports){
 var baseToString = require('./_baseToString');
 
 /**
@@ -6261,7 +6259,7 @@ function toString(value) {
 
 module.exports = toString;
 
-},{"./_baseToString":53}],149:[function(require,module,exports){
+},{"./_baseToString":52}],148:[function(require,module,exports){
 var baseIteratee = require('./_baseIteratee'),
     baseUniq = require('./_baseUniq');
 
@@ -6294,7 +6292,7 @@ function uniqBy(array, iteratee) {
 
 module.exports = uniqBy;
 
-},{"./_baseIteratee":43,"./_baseUniq":55}],150:[function(require,module,exports){
+},{"./_baseIteratee":42,"./_baseUniq":54}],149:[function(require,module,exports){
 var createCaseFirst = require('./_createCaseFirst');
 
 /**
@@ -6318,598 +6316,426 @@ var upperFirst = createCaseFirst('toUpperCase');
 
 module.exports = upperFirst;
 
-},{"./_createCaseFirst":60}],151:[function(require,module,exports){
-(function (Buffer){(function (){
-'use strict';
-
-class OsuBuffer {
-    /**
-     * @param input
-     */
-    constructor(input) {
-        this.buffer = Buffer.from((input instanceof Buffer) ? input : []);
-        this.position = 0;
-    }
-
-    /**
-     * Returns the full length of the buffer
-     * @returns {Number}
-     */
-    get length() {
-        return this.buffer.length;
-    }
-
-    /**
-     * Returns buffer to a binary string
-     * @returns {String}
-     */
-    toString(type = 'binary') {
-        return this.buffer.toString(type);
-    }
-
-    /**
-     * Creates a new OsuBuffer from arguments
-     * @returns {OsuBuffer}
-     */
-    static from() {
-        if (arguments[0] instanceof OsuBuffer) {
-            arguments[0] = arguments[0].buffer;
+},{"./_createCaseFirst":59}],150:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.BaseBuffer = void 0;
+class BaseBuffer {
+    constructor(data) {
+        this._buff = new ArrayBuffer(8192);
+        this._position = 0;
+        this._length = 0;
+        if (data) {
+            this._buff = data;
+            this._length = data.byteLength;
         }
-        return new OsuBuffer(Buffer.from.apply(Buffer, arguments));
     }
-
-    /**
-     * Returns boolean if can read from defined length from buffer
-     * @param {Number} length
-     * @return {boolean}
-     */
+    get buff() {
+        return this._buff;
+    }
+    get position() {
+        return this._position;
+    }
+    get length() {
+        return this._length;
+    }
     canRead(length) {
-        return length + this.position <= this.buffer.length;
+        return length + this._position < this._buff.byteLength;
     }
-
-    /**
-     * Returns boolean if at end of the buffer
-     * @return {boolean}
-     */
-    EOF() {
-        return this.position >= this.buffer.length;
+    atEnd() {
+        return this._position >= this._buff.byteLength;
     }
-
-    /**
-     * Slices and returns buffer
-     * @param {Number} length
-     * @param {Boolean?} asOsuBuffer
-     * @return {OsuBuffer|Buffer}
-     */
-    Slice(length, asOsuBuffer = true) {
-        this.position += length;
-        return asOsuBuffer ? OsuBuffer.from(this.buffer.slice(this.position - length, this.position))
-            : this.buffer.slice(this.position - length, this.position);
+    slice(length, position = -1) {
+        if (position > 0) {
+            return this._buff.slice(position, position + length);
+        }
+        this._position += length;
+        return this._buff.slice(this._position - length, this._position);
     }
-
-    // Reading
-
-    /**
-     * Peeks the next byte in the buffer without shifting the position
-     * @return {Number|undefined}
-     */
-    Peek() {
-        return this.buffer[this.position+1];
+    toArrayBuffer() {
+        return this._buff.slice(0, this._length);
     }
+}
+exports.BaseBuffer = BaseBuffer;
 
-    /**
-     * Reads a byte from the buffer
-     * Does the same thing as ReadUInt8()
-     * @return {Number}
-     */
-    ReadByte() {
-        return this.ReadUInt8();
+},{}],151:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OsuReader = void 0;
+const BaseBuffer_1 = require("./BaseBuffer");
+class OsuReader extends BaseBuffer_1.BaseBuffer {
+    readUint8() {
+        const dataView = new DataView(this._buff);
+        const data = dataView.getUint8(this._position);
+        this._position += 1;
+        return data;
     }
-
-    /**
-     * Reads a signed integer from the Buffer
-     * @param {Number} byteLength
-     * @return {Number}
-     */
-    ReadInt(byteLength) {
-        this.position += byteLength;
-        return this.buffer.readIntLE(this.position - byteLength, byteLength);
+    readInt8() {
+        const dataView = new DataView(this._buff);
+        const data = dataView.getInt8(this._position);
+        this._position += 1;
+        return data;
     }
-
-    /**
-     * Reads a unsigned integer from the Buffer
-     * @param {Number} byteLength
-     * @return {Number}
-     */
-    ReadUInt(byteLength) {
-        this.position += byteLength;
-        return this.buffer.readUIntLE(this.position - byteLength, byteLength);
+    readUint16() {
+        const dataView = new DataView(this._buff);
+        const data = dataView.getUint16(this._position, true);
+        this._position += 2;
+        return data;
     }
-
-    /**
-     * Reads a 8-bit signed integer from the buffer
-     * @return {Number}
-     */
-    ReadInt8() {
-        return this.ReadInt(1);
+    readInt16() {
+        const dataView = new DataView(this._buff);
+        const data = dataView.getInt16(this._position, true);
+        this._position += 2;
+        return data;
     }
-
-    /**
-     * Reads a 8-bit unsigned integer from the buffer
-     * @return {Number}
-     */
-    ReadUInt8() {
-        return this.ReadUInt(1);
+    readUint32() {
+        const dataView = new DataView(this._buff);
+        const data = dataView.getUint32(this._position, true);
+        this._position += 4;
+        return data;
     }
-
-    /**
-     * Reads a 16-bit signed integer from the buffer
-     * @return {Number}
-     */
-    ReadInt16() {
-        return this.ReadInt(2);
+    readInt32() {
+        const dataView = new DataView(this._buff);
+        const data = dataView.getInt32(this._position, true);
+        this._position += 4;
+        return data;
     }
-
-    /**
-     * Reads a 16-bit unsigned integer from the buffer
-     * @return {Number}
-     */
-    ReadUInt16() {
-        return this.ReadUInt(2);
+    readUint64() {
+        const dataView = new DataView(this._buff);
+        const data = dataView.getBigUint64(this._position, true);
+        this._position += 8;
+        return data;
     }
-
-    /**
-     * Reads a 32-bit signed integer from the buffer
-     * @return {Number}
-     */
-    ReadInt32() {
-        return this.ReadInt(4);
+    readInt64() {
+        const dataView = new DataView(this._buff);
+        const data = dataView.getBigInt64(this._position, true);
+        this._position += 8;
+        return data;
     }
-
-    /**
-     * Reads a 32-bit signed unsigned from the buffer
-     * @return {Number}
-     */
-    ReadUInt32() {
-        return this.ReadUInt(4);
-    }
-
-    /**
-     * Reads a 64-bit signed integer from the buffer
-     * @return {Number}
-     */
-    ReadInt64() {
-        return (this.ReadInt(4) << 8) + this.ReadInt(4);
-    }
-
-    /**
-     * Reads a 64-bit signed unsigned from the buffer
-     * @return {Number}
-     */
-    ReadUInt64() {
-        return (this.ReadUInt(4) << 8) + this.ReadUInt(4);
-    }
-
-    /**
-     * Reads a 32-bit Float from the buffer
-     * @returns {Number}
-     */
-    ReadFloat() {
-        this.position += 4;
-        return this.buffer.readFloatLE(this.position - 4);
-    }
-
-    /**
-     * Reads a 64-bit Double from the buffer
-     * @returns {Number}
-     */
-    ReadDouble() {
-        this.position += 8;
-        return this.buffer.readDoubleLE(this.position - 8);
-    }
-
-    /**
-     * Reads a string from the buffer
-     * @param {Number} length
-     * @returns {String}
-     */
-    ReadString(length) {
-        return this.Slice(length, false).toString();
-    }
-
-    /**
-     * Decodes a 7-bit encoded integer from the buffer
-     * @returns {Number}
-     */
-    ReadVarint() {
+    read7bitInt() {
         let total = 0;
         let shift = 0;
-        let byte = this.ReadUInt8();
-        if((byte & 0x80) === 0) {
-            total |= ((byte & 0x7F) << shift);
-        } else {
+        let byte = this.readUint8();
+        if ((byte & 0x80) === 0) {
+            total |= (byte & 0x7f) << shift;
+        }
+        else {
             let end = false;
             do {
-                if(shift) {
-                    byte = this.ReadUInt8();
+                if (shift) {
+                    byte = this.readUint8();
                 }
-                total |= ((byte & 0x7F) << shift);
-                if((byte & 0x80) === 0) end = true;
+                total |= (byte & 0x7f) << shift;
+                if ((byte & 0x80) === 0)
+                    end = true;
                 shift += 7;
             } while (!end);
         }
-
         return total;
     }
-
-    /**
-     * Decodes a 7-bit encoded integer from the buffer
-     * @deprecated Use ReadVarint instead
-     * @returns {Number}
-     */
-    ReadULeb128() {
-        return this.ReadVarint();
-    }
-
-    /**
-     * Reads a byte from buffer and converts to boolean
-     * @return {boolean}
-     */
-    ReadBoolean() {
-        return Boolean(this.ReadInt(1));
-    }
-
-    /**
-     * Reads an osu! encoded string from the Buffer
-     * @returns {string}
-     */
-    ReadOsuString() {
-        let isString = this.ReadByte() === 11;
-        if(isString) {
-            let len = this.ReadVarint();
-            return this.ReadString(len);
-        } else {
-            return '';
+    readString() {
+        if (this.readUint8() === 0) {
+            return null;
         }
+        const length = this.read7bitInt();
+        const buffView = new Uint8Array(this._buff, this._position, length);
+        let value = "";
+        for (const item of buffView) {
+            value += String.fromCharCode(item);
+        }
+        this._position += length;
+        this._length += length;
+        return value;
     }
+    readFloat() {
+        const dataView = new DataView(this._buff);
+        const data = dataView.getFloat32(this._position, true);
+        this._position += 4;
+        return data;
+    }
+    readDouble() {
+        const dataView = new DataView(this._buff);
+        const data = dataView.getFloat64(this._position, true);
+        this._position += 8;
+        return data;
+    }
+    readBoolean() {
+        return Boolean(this.readUint8());
+    }
+    readBytes(length) {
+        let arr = [];
+        for (let i = 0; i < length; i++) {
+            arr[i] = this.readUint8();
+        }
+        return arr;
+    }
+    readInt32Array() {
+        const length = this.readInt16();
+        let arr = [];
+        for (let i = 0; i < length; i++) {
+            arr[i] = this.readInt32();
+        }
+        return arr;
+    }
+    readInt32DoublePair() {
+        const length = this.readInt32();
+        const map = new Map();
+        for (let i = 0; i < length; i++) {
+            this.readUint8();
+            const key = this.readInt32();
+            this.readUint8();
+            const value = this.readInt32();
+            map.set(key, value);
+        }
+        return map;
+    }
+    readDateTime() {
+        const ticks = this.readUint64();
+        let date = new Date(Number((ticks - BigInt("621355968000000000")) / BigInt(10000)));
+        return date;
+    }
+    static fromString(value) {
+        const buff = new ArrayBuffer(value.length);
+        const buffView = new Uint8Array(buff);
+        for (let i = 0; i < value.length; i++) {
+            buffView[i] = value.charCodeAt(i);
+        }
+        return new OsuReader(buff);
+    }
+}
+exports.OsuReader = OsuReader;
 
-    // Writing
-
-    /**
-     * Concats a buffer to the current buffer
-     * @param {Buffer} value
-     * @return {OsuBuffer}
-     */
-    WriteBuffer(value) {
-        this.buffer = Buffer.concat([this.buffer, value]);
+},{"./BaseBuffer":150}],152:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OsuWriter = void 0;
+const BaseBuffer_1 = require("./BaseBuffer");
+class OsuWriter extends BaseBuffer_1.BaseBuffer {
+    writeUint8(value) {
+        const dataView = new DataView(this._buff);
+        dataView.setUint8(this._position, value);
+        this._position += 1;
+        this._length += 1;
         return this;
     }
-
-    /**
-     * Writes an unsinged integer of any byte length
-     * @param {Number} value
-     * @param {Number} byteLength
-     * @return {OsuBuffer}
-     */
-    WriteUInt(value, byteLength) {
-        let buff = Buffer.alloc(byteLength);
-        buff.writeUIntLE(value, 0, byteLength);
-
-        return this.WriteBuffer(buff);
-    }
-
-    /**
-     * Writes an integer of any byte length
-     * @param {Number} value
-     * @param {Number} byteLength
-     * @return {OsuBuffer}
-     */
-    WriteInt(value, byteLength) {
-        let buff = Buffer.alloc(byteLength);
-        buff.writeIntLE(value, 0, byteLength);
-
-        return this.WriteBuffer(buff);
-    }
-
-    /**
-     * Writes a 8-bit integer to the Buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteByte(value) {
-        return this.WriteBuffer(Buffer.alloc(1, value));
-    }
-
-    /**
-     *
-     * @param {Array} value
-     * @return {OsuBuffer}
-     */
-    WriteBytes(value) {
-        return this.WriteBuffer(Buffer.from(value));
-    }
-
-    /**
-     * Writes a 8-bit integer to the Buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteUInt8(value) {
-        return this.WriteUInt(value, 1);
-    }
-
-    /**
-     * Writes a 8-bit integer to the Buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteInt8(value) {
-        return this.WriteInt(value, 1);
-    }
-
-    /**
-     * Writes a 16-bit unsigned integer to the Buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteUInt16(value) {
-        return this.WriteUInt(value, 2);
-    }
-
-    /**
-     * Writes a 16-bit signed integer to the Buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteInt16(value) {
-        return this.WriteInt(value, 2);
-    }
-
-    /**
-     * Writes a 32-bit unsigned integer to the Buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteUInt32(value) {
-        return this.WriteUInt(value, 4);
-    }
-
-    /**
-     * Writes a 32-bit signed integer to the Buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteInt32(value) {
-        return this.WriteInt(value, 4);
-    }
-
-    /**
-     * Writes a 64-bit unsigned integer to the Buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteUInt64(value) {
-        let buff = Buffer.alloc(8);
-        // High
-        buff.writeUInt32LE(value >> 8, 0);
-        // Low
-        buff.writeUInt32LE(value & 0x00ff, 4);
-
-        return this.WriteBuffer(buff);
-    }
-
-    /**
-     * Writes a 64-bit signed integer to the Buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteInt64(value) {
-        let buff = Buffer.alloc(8);
-        // High
-        buff.writeInt32LE(value >> 8, 0);
-        // Low
-        buff.writeInt32LE(value & 0x00ff, 4);
-
-        return this.WriteBuffer(buff);
-    }
-
-    /**
-     * Writes a 32-bit float to the buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteFloat(value) {
-        let buff = Buffer.alloc(4);
-        buff.writeFloatLE(value, 0);
-
-        return this.WriteBuffer(buff);
-    }
-
-    /**
-     * Writes a 64-bit double to the buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteDouble(value) {
-        let buff = Buffer.alloc(8);
-        buff.writeDoubleLE(value, 0);
-
-        return this.WriteBuffer(buff);
-    }
-
-    /**
-     * Writes a string to the Buffer
-     * @param {string} value
-     * @return {OsuBuffer}
-     */
-    WriteString(value) {
-        let buff = Buffer.alloc(Buffer.byteLength(value, 'utf8'));
-        buff.write(value);
-
-        return this.WriteBuffer(buff);
-    }
-
-    /**
-     * Writes a boolean to the buffer
-     * @param {boolean} value
-     * @return {OsuBuffer}
-     */
-    WriteBoolean(value) {
-        return this.WriteByte(value ? 1 : 0);
-    }
-
-    /**
-     * Writes an osu! encoded string to the Buffer
-     * @param {string?} value
-     * @param nullable
-     * @return {OsuBuffer}
-     */
-    WriteOsuString(value, nullable = false) {
-        if(value.length === 0 && nullable)
-        {
-            this.WriteByte(0);
-        } else if(value.length === 0)
-        {
-            this.WriteByte(11);
-            this.WriteByte(0);
-        } else {
-            this.WriteByte(11);
-            this.WriteVarint(Buffer.byteLength(value, 'utf8'));
-            this.WriteString(value);
-        }
+    writeInt8(value) {
+        const dataView = new DataView(this._buff);
+        dataView.setInt8(this._position, value);
+        this._position += 1;
+        this._length += 1;
         return this;
     }
-
-    /**
-     * Writes an unsigned 7-bit encoded integer to the Buffer
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteVarint(value) {
+    writeUint16(value) {
+        const dataView = new DataView(this._buff);
+        dataView.setUint16(this._position, value, true);
+        this._position += 2;
+        this._length += 2;
+        return this;
+    }
+    writeInt16(value) {
+        const dataView = new DataView(this._buff);
+        dataView.setInt16(this._position, value, true);
+        this._position += 2;
+        this._length += 2;
+        return this;
+    }
+    writeUint32(value) {
+        const dataView = new DataView(this._buff);
+        dataView.setUint32(this._position, value, true);
+        this._position += 4;
+        this._length += 4;
+        return this;
+    }
+    writeInt32(value) {
+        const dataView = new DataView(this._buff);
+        dataView.setInt32(this._position, value, true);
+        this._position += 4;
+        this._length += 4;
+        return this;
+    }
+    writeUint64(value) {
+        const dataView = new DataView(this._buff);
+        dataView.setBigUint64(this._position, value, true);
+        this._position += 8;
+        this._length += 8;
+        return this;
+    }
+    writeInt64(value) {
+        const dataView = new DataView(this._buff);
+        dataView.setBigInt64(this._position, value, true);
+        this._position += 8;
+        this._length += 8;
+        return this;
+    }
+    write7bitInt(value) {
         let arr = [];
         let len = 0;
         do {
-            arr[len] = value & 0x7F;
-            if ((value >>= 7) !== 0) arr[len] |= 0x80;
+            arr[len] = value & 0x7f;
+            if ((value >>= 7) !== 0)
+                arr[len] |= 0x80;
             len++;
         } while (value > 0);
-
-        return this.WriteBuffer(Buffer.from(arr));
+        const dataView = new Uint8Array(this._buff, this._position, arr.length);
+        dataView.set(arr);
+        this._position += arr.length;
+        this._length += arr.length;
+        return this;
     }
-
-    /**
-     * Writes an unsigned 7-bit encoded integer to the Buffer
-     * @deprecated Use WriteUVarint instead
-     * @param {Number} value
-     * @return {OsuBuffer}
-     */
-    WriteULeb128(value) {
-        return this.WriteVarint(value);
+    writeString(value) {
+        if (!value || value.length === 0) {
+            this.writeUint8(0);
+        }
+        else {
+            this.writeUint8(11);
+            this.write7bitInt(value.length);
+            const dataView = new Uint8Array(this._buff, this._position, value.length);
+            for (let i = 0; i < value.length; i++) {
+                dataView[i] = value.charCodeAt(i);
+            }
+            this._position += value.length;
+            this._length += value.length;
+        }
+        return this;
+    }
+    writeFloat(value) {
+        const dataView = new DataView(this._buff);
+        dataView.setFloat32(this._position, value, true);
+        this._position += 4;
+        this._length += 4;
+        return this;
+    }
+    writeDouble(value) {
+        const dataView = new DataView(this._buff);
+        dataView.setFloat64(this._position, value, true);
+        this._position += 8;
+        this._length += 8;
+        return this;
+    }
+    writeBoolean(value) {
+        return this.writeUint8(value ? 1 : 0);
+    }
+    writeBytes(values) {
+        for (const v of values) {
+            this.writeUint8(v);
+        }
+        return this;
+    }
+    writeInt32Array(values) {
+        this.writeInt16(values.length);
+        for (const v of values) {
+            this.writeInt32(v);
+        }
+        return this;
+    }
+    writeInt32DoublePair(values) {
+        this.writeInt32(values.size);
+        for (const [k, v] of values.entries()) {
+            this.writeUint8(8);
+            this.writeInt32(k);
+            this.writeUint8(13);
+            this.writeDouble(v);
+        }
+        return this;
+    }
+    writeDateTime(value) {
+        const data = BigInt(value.getTime() * 10000) + BigInt("621355968000000000");
+        this.writeUint64(data);
+        return this;
     }
 }
+exports.OsuWriter = OsuWriter;
 
-module.exports = OsuBuffer;
+},{"./BaseBuffer":150}],153:[function(require,module,exports){
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(require("./OsuReader"), exports);
+__exportStar(require("./OsuWriter"), exports);
 
-}).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":4}],152:[function(require,module,exports){
-const OsuDBParser = require("./src/OsuDB");
-
-module.exports = OsuDBParser;
-},{"./src/OsuDB":153}],153:[function(require,module,exports){
-const fs = require('fs');
-const osuBuffer = require('osu-buffer');
-const Reader = require("./Reader");
-const { osuDbStruct, collectionsStruct } = require("./Struct");
-
+},{"./OsuReader":151,"./OsuWriter":152}],154:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Reader_1 = require("./Reader");
+const Struct_1 = require("./Struct");
 class OsuDBParser {
-    /**
-     * @param {Buffer} osuDbBuffer
-     * @param {Buffer} osuCollectionBuffer
-     */
-    constructor(osuDbBuffer=null, osuCollectionBuffer=null) {
-        this.reader = new Reader();
-        
-        this.canGetDBData = (osuDbBuffer !== null)
-        this.canGetCollectionData = (osuCollectionBuffer !== null)
-
-        if (this.canGetDBData) {
-            this.dbfile = osuBuffer.from(osuDbBuffer);
-            let dbosuData = this.reader.UnmarshalPacket(this.dbfile, osuDbStruct)
-            dbosuData.isLocked = !dbosuData.isLocked
-            this.osuDBData = dbosuData
+    constructor(osuDbBuffer = null, osuCollectionBuffer = null) {
+        this.reader = new Reader_1.Reader();
+        this.canGetDBData = osuDbBuffer !== null;
+        this.canGetCollectionData = osuCollectionBuffer !== null;
+        if (this.canGetDBData && osuDbBuffer) {
+            this.dbFile = osuDbBuffer;
+            const dbosuData = this.reader.UnmarshalPacket(this.dbFile, Struct_1.osuDbStruct);
+            dbosuData.isLocked = !dbosuData.isLocked;
+            this.osuDBData = dbosuData;
         }
-        if (this.canGetCollectionData) {
-            this.collectionDB = osuBuffer.from(osuCollectionBuffer); 
-            let collectionData = this.reader.UnmarshalPacket(this.collectionDB, collectionsStruct)
-            this.collectionData = collectionData
-        }           
+        if (this.canGetCollectionData && osuCollectionBuffer) {
+            this.collectionDB = osuCollectionBuffer;
+            this.collectionData = this.reader.UnmarshalPacket(this.collectionDB, Struct_1.collectionStruct);
+        }
     }
-
     /**
-     * Set a buffer and parse him ;d
-     * @param {String} type
-     * @param {OsuBuffer} buffer
-     * @return {Boolean}
+     * Set a buffer and parse it
+     * @param {BufferType} type - The type of buffer ('osudb' or 'collection')
+     * @param {Buffer} buffer - The buffer to parse
+     * @returns {boolean}
      */
     setBuffer(type, buffer) {
-        switch(type) {
-            case "osudb": {
-                try {
-                    this.dbfile = osuBuffer.from(buffer);
-                    let dbosuData = this.reader.UnmarshalPacket(this.dbfile, osuDbStruct)
-                    dbosuData.isLocked = !dbosuData.isLocked
-                    this.osuDBData = dbosuData
-                    this.canGetDBData = true;
-                } catch (e) {
-                    console.log("Error while we had tried parse osu!.db")
-                    console.log(e);
-                }
-                break;
+        try {
+            if (type === 'osudb') {
+                this.dbFile = buffer;
+                const dbosuData = this.reader.UnmarshalPacket(this.dbFile, Struct_1.osuDbStruct);
+                dbosuData.isLocked = !dbosuData.isLocked;
+                this.osuDBData = dbosuData;
+                this.canGetDBData = true;
             }
-            case "collection": {
-                try {
-                    this.collectionDB = osuBuffer.from(osuCollectionBuffer); 
-                    let collectionData = this.reader.UnmarshalPacket(this.collectionDB, collectionsStruct)
-                    this.collectionData = collectionData
-                    this.canGetCollectionData = true;
-                } catch (e) {
-                    console.log("Error while we had tried parse collection.db")
-                    console.log(e);
-                }
-                break;
+            else if (type === 'collection') {
+                this.collectionDB = buffer;
+                this.collectionData = this.reader.UnmarshalPacket(this.collectionDB, Struct_1.collectionStruct);
+                this.canGetCollectionData = true;
             }
+        }
+        catch (error) {
+            console.error(`Error while parsing ${type}.db:`, error);
+            return false;
         }
         return true;
     }
-
     /**
      * Get osu DB data if present
-     * @return {Object}
+     * @returns {OsuDBData | null}
      */
     getOsuDBData() {
-        return (this.canGetDBData) ? this.osuDBData : null;
+        return this.canGetDBData ? this.osuDBData ?? null : null;
     }
-
     /**
      * Get collection DB data if present
-     * @return {Object}
+     * @returns {CollectionData | null}
      */
     getCollectionData() {
-        return (this.canGetCollectionData) ? this.collectionData : null;
+        return this.canGetCollectionData ? this.collectionData ?? null : null;
     }
 }
+exports.default = OsuDBParser;
 
-module.exports = OsuDBParser
-    
-},{"./Reader":154,"./Struct":155,"fs":3,"osu-buffer":151}],154:[function(require,module,exports){
-(function (Buffer){(function (){
+},{"./Reader":155,"./Struct":156}],155:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Reader = void 0;
 /* Reader base from osu-packet! */
-const OsuBuffer = require('osu-buffer');
-
+const osu_buffer_1 = require("osu-buffer");
 class Reader {
     constructor() {
     }
-  
     /**
      * Reads a set of data from a buffer
      * @param {OsuBuffer} buff
@@ -6918,259 +6744,251 @@ class Reader {
      * @param {Object|Array} data
      * @return {Object|Array}
      */
-    Read(buff, layout, data = {}) {
-      switch (layout.type.toLowerCase()) {
-        case 'int8':
-          data = buff.ReadInt8();
-          break;
-        case 'uint8':
-          data = buff.ReadUInt8();
-          break;
-        case 'int16':
-          data = buff.ReadInt16();
-          break;
-        case 'uint16':
-          data = buff.ReadUInt16();
-          break;
-        case 'int32':
-          data = buff.ReadInt32();
-          break;
-        case 'uint32':
-          data = buff.ReadUInt32();
-          break;
-        case 'int64':
-          data = buff.ReadInt64();
-          break;
-        case 'uint64':
-          data = buff.ReadUInt64();
-          break;
-        case 'string':
-          data = buff.ReadOsuString();
-          break;
-        case 'float':
-          data = buff.ReadFloat();
-          break;
-        case 'double':
-          data = buff.ReadDouble();
-          break;
-        case 'boolean':
-          data = buff.ReadBoolean();
-          break;
-        case 'byte':
-          data = buff.ReadByte();
-          break;
-        case 'int32array': {
-          let len = buff.ReadInt16();
-          data = [];
-          for (let i = 0; i < len; i++) {
-            data.push(buff.ReadInt32());
-          }
-          break;
-        }
-        case "collections": {
-          let collectionsCount = data['collectionscount'];
-          data = [];
-          for (let i=0; i < collectionsCount; i++) {
-            let collection = {
-              'name': buff.ReadOsuString(),
-              'beatmapsCount': buff.ReadInt32(),
-              'beatmapsMd5': []
+    Read(reader, layout, data = undefined) {
+        switch (layout.type.toLowerCase()) {
+            case 'int8':
+                data = reader.readInt8();
+                break;
+            case 'uint8':
+                data = reader.readUint8();
+                break;
+            case 'int16':
+                data = reader.readInt16();
+                break;
+            case 'uint16':
+                data = reader.readUint16();
+                break;
+            case 'int32':
+                data = reader.readInt32();
+                break;
+            case 'uint32':
+                data = reader.readUint32();
+                break;
+            case 'int64':
+                data = reader.readInt64();
+                break;
+            case 'uint64':
+                data = reader.readUint64();
+                break;
+            case 'string':
+                data = reader.readString();
+                break;
+            case 'float':
+                data = reader.readFloat();
+                break;
+            case 'double':
+                data = reader.readDouble();
+                break;
+            case 'boolean':
+                data = reader.readBoolean();
+                break;
+            case 'byte':
+                data = reader.readUint8();
+                break;
+            case 'int32array': {
+                const len = reader.readInt16();
+                data = [];
+                for (let i = 0; i < len; i++) {
+                    data.push(reader.readInt32());
+                }
+                break;
             }
-
-            for (let i=0; i<collection['beatmapsCount']; i++) {
-              let bmmd5 = buff.ReadOsuString();
-              collection['beatmapsMd5'].push(bmmd5)
-            }
-
-            data.push(collection);
-          }
-          break;
-        }
-        case "beatmaps": {
-            let osuver = data['osuver'];
-            let beatmapscount = data['beatmaps_count'];
-            data = [];
-            for (let i = 0; i < beatmapscount; i++) {
-                if (osuver < 20191107) {
-                  buff.ReadInt32(); // entry size xd
-                }
-                let beatmap = {
-                  'artist_name': buff.ReadOsuString(),
-                  'artist_name_unicode': buff.ReadOsuString(),
-                  'song_title': buff.ReadOsuString(),
-                  'song_title_unicode': buff.ReadOsuString(),
-                  'creator_name': buff.ReadOsuString(),
-                  'difficulty': buff.ReadOsuString(),
-                  'audio_file_name': buff.ReadOsuString(),
-                  'md5': buff.ReadOsuString(),
-                  'osu_file_name': buff.ReadOsuString(),
-                  'ranked_status': buff.ReadByte(),
-                  'n_hitcircles': buff.ReadInt16(),
-                  'n_sliders': buff.ReadInt16(),
-                  'n_spinners': buff.ReadInt16(),
-                  'last_modification_time': buff.ReadInt64()
-                }
-
-                if (osuver < 20140609) {
-                  beatmap = {
-                    ...beatmap,
-                    'approach_rate': buff.ReadByte(),
-                    'circle_size': buff.ReadByte(),
-                    'hp_drain': buff.ReadByte(),
-                    'overall_difficulty': buff.ReadByte()
-                  }
-                } else {
-                  beatmap = {
-                    ...beatmap,
-                    'approach_rate': buff.ReadFloat(),
-                    'circle_size': buff.ReadFloat(),
-                    'hp_drain': buff.ReadFloat(),
-                    'overall_difficulty': buff.ReadFloat()
-                  }
-                }
-
-                beatmap['slider_velocity'] = buff.ReadDouble()
-                
-                if (osuver >= 20140609) {
-                  let difficulties = []
-                  
-                  for(let i = 0; i<4; i++) {
-                    let length = buff.ReadInt32()
-                    let diffs = {}
-                    for(let i=0; i<length; i++) {
-                        buff.ReadByte()
-                        let mode = buff.ReadInt32();
-                        buff.ReadByte();
-                        let diff = buff.ReadDouble();
-                        diffs[mode] = diff
+            case "collections": {
+                const collectionsCount = data['collectionscount'];
+                data = [];
+                for (let i = 0; i < collectionsCount; i++) {
+                    const collection = {
+                        'name': reader.readString(),
+                        'beatmapsCount': reader.readInt32(),
+                        'beatmapsMd5': []
+                    };
+                    for (let i = 0; i < collection['beatmapsCount']; i++) {
+                        const bmmd5 = reader.readString();
+                        // @ts-ignore
+                        collection['beatmapsMd5'].push(bmmd5);
                     }
-                    difficulties.push(diffs)
-                  } 
-
-                  beatmap = {
-                    ...beatmap,
-                    'star_rating_standard': difficulties[0],
-                    'star_rating_taiko': difficulties[1],
-                    'star_rating_ctb': difficulties[2],
-                    'star_rating_mania': difficulties[3],
-                  }
-                }         
-                
-                beatmap = {
-                  ...beatmap,
-                  'drain_time': buff.ReadInt32(),
-                  'total_time': buff.ReadInt32(),
-                  'preview_offset': buff.ReadInt32(),
+                    data.push(collection);
                 }
-
-                let timingPoints = [];
-                let timingPointsLength = buff.ReadInt32()
-                for (let i = 0; i < timingPointsLength; i++) {
-                  timingPoints.push([
-                    buff.ReadDouble(), //BPM
-                    buff.ReadDouble(), // offset
-                    buff.ReadBoolean() // Boolean
-                  ])
+                break;
+            }
+            case "beatmaps": {
+                const osuver = data['osuver'];
+                const beatmapscount = data['beatmaps_count'];
+                data = [];
+                for (let i = 0; i < beatmapscount; i++) {
+                    if (osuver < 20191107) {
+                        reader.readInt32(); // entry size xd
+                    }
+                    let beatmap = {
+                        'artist_name': reader.readString(),
+                        'artist_name_unicode': reader.readString(),
+                        'song_title': reader.readString(),
+                        'song_title_unicode': reader.readString(),
+                        'creator_name': reader.readString(),
+                        'difficulty': reader.readString(),
+                        'audio_file_name': reader.readString(),
+                        'md5': reader.readString(),
+                        'osu_file_name': reader.readString(),
+                        'ranked_status': reader.readUint8(),
+                        'n_hitcircles': reader.readInt16(),
+                        'n_sliders': reader.readInt16(),
+                        'n_spinners': reader.readInt16(),
+                        'last_modification_time': reader.readInt64()
+                    };
+                    if (osuver < 20140609) {
+                        beatmap = {
+                            ...beatmap,
+                            // @ts-ignore
+                            'approach_rate': reader.readUint8(),
+                            'circle_size': reader.readUint8(),
+                            'hp_drain': reader.readUint8(),
+                            'overall_difficulty': reader.readUint8()
+                        };
+                    }
+                    else {
+                        beatmap = {
+                            ...beatmap,
+                            // @ts-ignore
+                            'approach_rate': reader.readFloat(),
+                            'circle_size': reader.readFloat(),
+                            'hp_drain': reader.readFloat(),
+                            'overall_difficulty': reader.readFloat()
+                        };
+                    }
+                    beatmap['slider_velocity'] = reader.readDouble();
+                    if (osuver >= 20140609) {
+                        const difficulties = [];
+                        for (let i = 0; i < 4; i++) {
+                            const length = reader.readInt32();
+                            const diffs = {};
+                            for (let i = 0; i < length; i++) {
+                                reader.readUint8();
+                                const mode = reader.readInt32();
+                                reader.readUint8();
+                                const diff = osuver > 20250107 ? reader.readFloat() : reader.readDouble();
+                                diffs[mode] = diff;
+                            }
+                            // @ts-ignore
+                            difficulties.push(diffs);
+                        }
+                        beatmap = {
+                            ...beatmap,
+                            // @ts-ignore
+                            'star_rating_standard': difficulties[0],
+                            'star_rating_taiko': difficulties[1],
+                            'star_rating_ctb': difficulties[2],
+                            'star_rating_mania': difficulties[3],
+                        };
+                    }
+                    beatmap = {
+                        ...beatmap,
+                        // @ts-ignore
+                        'drain_time': reader.readInt32(),
+                        'total_time': reader.readInt32(),
+                        'preview_offset': reader.readInt32(),
+                    };
+                    const timingPoints = [];
+                    const timingPointsLength = reader.readInt32();
+                    for (let i = 0; i < timingPointsLength; i++) {
+                        // @ts-ignore
+                        timingPoints.push([
+                            reader.readDouble(), //BPM
+                            reader.readDouble(), // offset
+                            reader.readBoolean() // Boolean
+                        ]);
+                    }
+                    beatmap = {
+                        ...beatmap,
+                        // @ts-ignore
+                        'beatmap_id': reader.readInt32(),
+                        'beatmapset_id': reader.readInt32(),
+                        'thread_id': reader.readInt32(),
+                        'grade_standard': reader.readUint8(),
+                        'grade_taiko': reader.readUint8(),
+                        'grade_ctb': reader.readUint8(),
+                        'grade_mania': reader.readUint8(),
+                        'local_beatmap_offset': reader.readInt16(),
+                        'stack_leniency': reader.readFloat(),
+                        'timing_points': timingPoints,
+                        'mode': reader.readUint8(),
+                        'song_source': reader.readString(),
+                        'song_tags': reader.readString(),
+                        'online_offset': reader.readInt16(),
+                        'title_font': reader.readString(),
+                        'unplayed': reader.readBoolean(),
+                        'last_played': reader.readInt64(),
+                        'osz2': reader.readBoolean(),
+                        'folder_name': reader.readString(),
+                        'last_checked_against_repository': reader.readInt64(),
+                        'ignore_sound': reader.readBoolean(),
+                        'ignore_skin': reader.readBoolean(),
+                        'disable_storyboard': reader.readBoolean(),
+                        'disable_video': reader.readBoolean(),
+                        'visual_override': reader.readBoolean()
+                    };
+                    if (osuver < 20140609) {
+                        reader.readInt16();
+                    }
+                    beatmap['last_modification_time_2'] = reader.readInt32();
+                    beatmap['mania_scroll_speed'] = reader.readUint8();
+                    data.push(beatmap);
                 }
-
-                beatmap = {
-                  ...beatmap,
-                  'beatmap_id': buff.ReadInt32(),
-                  'beatmapset_id': buff.ReadInt32(),
-                  'thread_id': buff.ReadInt32(),
-                  'grade_standard': buff.ReadByte(),
-                  'grade_taiko': buff.ReadByte(),
-                  'grade_ctb': buff.ReadByte(),
-                  'grade_mania': buff.ReadByte(),
-                  'local_beatmap_offset': buff.ReadInt16(),
-                  'stack_leniency': buff.ReadFloat(),
-                  'timing_points': timingPoints,
-                  'mode': buff.ReadByte(),
-                  'song_source': buff.ReadOsuString(),
-                  'song_tags': buff.ReadOsuString(),
-                  'online_offset': buff.ReadInt16(),
-                  'title_font': buff.ReadOsuString(),
-                  'unplayed': buff.ReadBoolean(),
-                  'last_played': buff.ReadInt64(),
-                  'osz2': buff.ReadBoolean(),
-                  'folder_name': buff.ReadOsuString(),
-                  'last_checked_against_repository': buff.ReadInt64(),
-                  'ignore_sound': buff.ReadBoolean(),
-                  'ignore_skin': buff.ReadBoolean(),
-                  'disable_storyboard': buff.ReadBoolean(),
-                  'disable_video': buff.ReadBoolean(),
-                  'visual_override': buff.ReadBoolean()
-                }
-
-                if (osuver < 20140609) {
-                  buff.ReadInt16()
-                }
-                beatmap['last_modification_time_2'] = buff.ReadInt32();
-
-                beatmap['mania_scroll_speed'] = buff.ReadByte()
-
-                data.push(beatmap);
             }
         }
-      }
-      return data;
+        return data;
     }
-  
     /**
      * Unmarshal's the buffer from the layout
-     * @param {OsuBuffer|Buffer} raw
+     * @param {Buffer} raw
      * @param {Array|Object|Null} layout
      * @return {Object|Null}
      */
-    UnmarshalPacket(raw, layout = null) {
-      if (!raw) {
-        return null;
-      }
-      let buff = raw;
-      if (raw instanceof Buffer) {
-        buff = OsuBuffer.from(raw);
-      }
-      let data = {};
-      if (layout instanceof Array) {
+    UnmarshalPacket(raw, layout) {
+        const reader = new osu_buffer_1.OsuReader(raw.buffer);
+        const data = {};
         layout.forEach(item => {
-          if(item.uses) {
-            let needelements = item.uses.split(",")
-            let dater = {}
-            for (let datak of needelements) {
-              dater[datak] = data[datak]
+            if (item.uses) {
+                const needElements = item.uses.split(",");
+                const dater = {};
+                for (let datak of needElements) {
+                    dater[datak] = data[datak];
+                }
+                data[item.name] = this.Read(reader, item, item.uses ? dater : {});
             }
-            
-            data[item.name] = this.Read(buff, item, item.uses ? dater : null);
-          } else {
-            data[item.name] = this.Read(buff, item);
-          }
+            else {
+                data[item.name] = this.Read(reader, item);
+            }
         });
-      } else if (layout instanceof Object) {
-        data = this.Read(buff, layout);
-      }
-      return data;
+        return data;
     }
-
-  }
-  
-  module.exports = Reader;
-}).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":4,"osu-buffer":151}],155:[function(require,module,exports){
-module.exports = {
-    osuDbStruct: [
-        {name: 'osuver', type: 'int32'},
-        {name: 'folder_count', type: 'int32'},
-        {name: 'is_unlocked', type: 'boolean'},
-        {name: 'date_unlock_ticks', type: 'int64'},
-        {name: 'username', type: 'string'},
-        {name: 'beatmaps_count', type: 'int32'},
-        {name: 'beatmaps', type: 'beatmaps', uses: 'osuver,beatmaps_count'},
-        {name: 'userperms', type: 'int32'}
-    ],
-    collectionsStruct: [
-        {name: 'osuver', type: 'int32'},
-        {name: 'collectionscount', type: 'int32'},
-        {name: 'collection', type: 'collections', uses: 'collectionscount'}
-    ]
 }
-},{}]},{},[1]);
+exports.Reader = Reader;
+
+},{"osu-buffer":153}],156:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.collectionStruct = exports.osuDbStruct = void 0;
+exports.osuDbStruct = [
+    { name: 'osuver', type: 'int32' },
+    { name: 'folder_count', type: 'int32' },
+    { name: 'is_unlocked', type: 'boolean' },
+    { name: 'date_unlock_ticks', type: 'int64' },
+    { name: 'username', type: 'string' },
+    { name: 'beatmaps_count', type: 'int32' },
+    { name: 'beatmaps', type: 'beatmaps', uses: 'osuver,beatmaps_count' },
+    { name: 'userperms', type: 'int32' }
+];
+exports.collectionStruct = [
+    { name: 'osuver', type: 'int32' },
+    { name: 'collectionscount', type: 'int32' },
+    { name: 'collection', type: 'collections', uses: 'collectionscount' }
+];
+
+},{}],157:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OsuDBParser = void 0;
+const OsuDB_1 = require("./OsuDB");
+exports.OsuDBParser = OsuDB_1.default;
+
+},{"./OsuDB":154}]},{},[1]);
