@@ -16,6 +16,8 @@ const list = {
     loved: document.getElementById("missing_loved")
 };
 
+const PAGE_SIZE = 250;
+
 let currentBeatmaps;
 
 const fetchBeatmapsPromise = new Promise(async (resolve, reject) => {
@@ -94,7 +96,7 @@ async function fetchBeatmaps(beatmaps, page){
         await fetch('https://osu.respektive.pw/b/', {
             method: 'POST',
             mode: 'cors',
-            body: beatmaps.slice(0 + 2000 * page, 2000 + 2000 * page).join(',')
+            body: beatmaps.slice(0 + PAGE_SIZE * page, PAGE_SIZE + PAGE_SIZE * page).join(',')
         })
     ).json();
 }
@@ -129,7 +131,7 @@ async function loadSection(section) {
     startTime = Date.now();
 
     const currentPage =  page[section];
-    const pages = Math.ceil(missing[section].length / 2000);
+    const pages = Math.ceil(missing[section].length / PAGE_SIZE);
 
     console.log(`fetching ${section} beatmaps (page ${currentPage + 1} / ${pages})`);
 
