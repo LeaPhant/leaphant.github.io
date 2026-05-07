@@ -91,7 +91,7 @@ function addEntries(section, beatmaps, pages){
 
 async function fetchBeatmaps(beatmaps, page){
     return await(
-        await fetch('https://osu.lea.moe/b/', {
+        await fetch('https://osu.respektive.pw/b/', {
             method: 'POST',
             mode: 'cors',
             body: beatmaps.slice(0 + 2000 * page, 2000 + 2000 * page).join(',')
