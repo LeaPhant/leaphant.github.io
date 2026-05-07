@@ -18,7 +18,7 @@ let currentBeatmaps;
 
 const fetchBeatmapsPromise = new Promise(async (resolve, reject) => {
     try{
-        currentBeatmaps = await(await fetch("https://osu.lea.moe/beatmaps")).json();
+        currentBeatmaps = await(await fetch("https://osu.respektive.pw/beatmaps")).json();
         resolve();
     }catch(e){
         reject(e);
@@ -103,10 +103,17 @@ let loading = 0;
 
 const errorContainer = document.getElementById("error_message");
 
+function hideError() {
+    errorContainer.style.display = 'none';
+}
+
 function showError(error) {
+    document.getElementById("loading_text").style.visibility = 'hidden';
     console.error(error);
     const errorMsg = document.createElement("pre");
     errorMsg.innerText = error.toString();
+    if (error.stack)
+        errorMsg.innerText += "\n" + error.stack.toString();
     errorContainer.innerHTML = '<strong>Error:</strong>';
     errorContainer.appendChild(errorMsg);
     errorContainer.innerHTML += '\n\nFeel free to open an <a target="_blank" href="https://github.com/LeaPhant/leaphant.github.io/issues">Issue</a> or shoot me an e-mail (mail@lea.moe).';
@@ -140,6 +147,8 @@ async function loadSection(section) {
 }
 
 async function loadFile(){
+    hideError();
+
     try {
         osuDB.setBuffer("osudb", Buffer.from(reader.result));
 
